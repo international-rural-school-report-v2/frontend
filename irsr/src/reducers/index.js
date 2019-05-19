@@ -1,4 +1,5 @@
 import {} from '../actions';
+import { LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions';
 
 const initialState = {
   issues: [
@@ -31,8 +32,33 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  switch (action.type) {
+  switch(action.type){
+    // Login
+    case LOGIN_LOADING:
+      return {
+        ...state,
+        login_loading: true,
+        message: "",
+        error: ""
+      }
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        login_loading: false,
+        error: "",
+        message: action.payload.message,
+        user: action.payload.user
+      }
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        login_loading: false,
+        error: action.payload,
+        message: "",
+        user: {}
+      }
+
     default:
-      return state;
+      return state
   }
 }
