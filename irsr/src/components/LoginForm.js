@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { connect } from 'react-redux';
+import { login } from '../actions';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -23,12 +24,12 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
     Promise.resolve(this.props.login(credentials)).then(() => {
-      if (this.props.isLoggedIn()) {
-        this.props.closeLoginModal(ev);
-      } else {
-        console.log('this.props.isLoggedIn() = ', this.props.isLoggedIn());
-        this.setState({ invalidLogin: true });
-      }
+      // if (this.props.isLoggedIn) {
+      //   this.props.closeLoginModal(ev);
+      // } else {
+      console.log('this.props.isLoggedIn() = ', this.props.isLoggedIn);
+      this.setState({ invalidLogin: true });
+      // }
     });
   };
 
@@ -74,10 +75,12 @@ class LoginForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    isLoggedIn: state.isLoggedIn
+  }
 };
 
 export default connect(
-  mapStateToProps, {}
-  // { login }
+  mapStateToProps,
+  { login }
 )(LoginForm);

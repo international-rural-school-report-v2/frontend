@@ -4,6 +4,8 @@ import LoginModal from './components/LoginModal';
 import IssuesContainer from './components/IssuesContainer';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import RegisterForm from './components/RegisterForm';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -13,9 +15,12 @@ function App() {
         <h1>International Rural School Report</h1>
         <LoginModal buttonLabel="Login" />
         {/* <Login buttonLabel="Login" /> */}
-        <IssuesContainer />
-        
+        <RegisterForm />
+
+
+        <PrivateRoute exact path="/issues" component={IssuesContainer} />
       </div>
+      <button onClick={() => window.localStorage.clear()}>Logout</button>
     </Router>
   );
 }

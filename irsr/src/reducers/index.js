@@ -1,5 +1,5 @@
-import {} from '../actions';
-import { LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions';
+import { 
+  LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE, GETTING_ORGS, GET_ORGS_FAILURE, GET_ORGS_SUCCESS }  from '../actions';
 
 const initialState = {
   issues: [
@@ -28,7 +28,9 @@ const initialState = {
       description: 'sample description5',
       id: 5
     }
-  ]
+  ],
+  isLoggedIn: null,
+  orgsFetched: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -42,12 +44,17 @@ export const reducer = (state = initialState, action) => {
         error: ""
       }
     case LOGIN_SUCCESS:
+      const org = Object.keys(action.payload.org_roles)[0];
+      const role = action.payload.org_roles[org][0];
       return {
         ...state,
         login_loading: false,
+        isLoggedIn: true,
         error: "",
         message: action.payload.message,
-        user: action.payload.user
+        user: action.payload.user,
+        org,
+        role
       }
     case LOGIN_FAILURE:
       return {
@@ -57,7 +64,14 @@ export const reducer = (state = initialState, action) => {
         message: "",
         user: {}
       }
-
+    case GET_ORGS_SUCCESS: 
+      return {
+        ...state,
+        orgsFetched: true,
+        orgs: action.payload.map( item => {
+          return item.name
+        })
+      }
     default:
       return state
   }

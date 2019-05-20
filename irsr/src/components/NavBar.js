@@ -13,8 +13,10 @@ import {
 
 import '../styles/nav.css';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { login } from '../actions';
 
-export default class NavBar extends React.Component {
+class NavBar extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,14 +25,21 @@ export default class NavBar extends React.Component {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
-        <Navbar vertical className='irsr-nav' color="faded" light expand="md" >
+        <Navbar 
+          vertical 
+          className='irsr-nav' 
+          color="faded" light 
+          expand="md" 
+        >
           <NavbarToggler onClick={this.toggle} />
           {/* <NavbarBrand href="/">IRSR</NavbarBrand> */}
           
@@ -40,7 +49,7 @@ export default class NavBar extends React.Component {
                 <NavLink className="nav-link" activeClassName="active" to="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" activeClassName="active" to="/issues/3">issue3</NavLink>
+                <NavLink className="nav-link" activeClassName="active" to="/issues">Issues</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -48,3 +57,14 @@ export default class NavBar extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.isLoggedIn
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  { login }
+)(NavBar);
