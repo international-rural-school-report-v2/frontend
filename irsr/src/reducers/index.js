@@ -1,5 +1,8 @@
 import { 
-  LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE, GETTING_ORGS, GET_ORGS_FAILURE, GET_ORGS_SUCCESS }  from '../actions';
+  LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE, 
+  GET_ORGS_FAILURE, GETTING_ORGS, GET_ORGS_SUCCESS, 
+  GETTING_ISSUES, GET_ISSUES_SUCCESS, GET_ISSUES_FAILURE
+}  from '../actions';
 
 const initialState = {
   issues: [
@@ -44,17 +47,19 @@ export const reducer = (state = initialState, action) => {
         error: ""
       }
     case LOGIN_SUCCESS:
-      const org = Object.keys(action.payload.org_roles)[0];
-      const role = action.payload.org_roles[org][0];
+      const org = action.payload.org_roles[0].org_name;
+      const role = action.payload.org_roles[0].roles[0].role_name;
+      const org_id = action.payload.org_roles[0].org_id;
       return {
         ...state,
         login_loading: false,
         isLoggedIn: true,
         error: "",
         message: action.payload.message,
-        user: action.payload.user,
+        user: action.payload.username,
         org,
-        role
+        role,
+        org_id
       }
     case LOGIN_FAILURE:
       return {
@@ -68,9 +73,15 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         orgsFetched: true,
-        orgs: action.payload.map( item => {
-          return item.name
-        })
+        orgs: action.payload
+        // .map( item => {
+        //   return item.name
+        // })
+      }
+    case GET_ISSUES_SUCCESS:
+      return {
+        ...state,
+
       }
     default:
       return state

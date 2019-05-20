@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { connect } from 'react-redux';
-import { login, getOrgs } from '../actions';
+import { login, getOrgs, register } from '../actions';
 
 class RegisterForm extends React.Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class RegisterForm extends React.Component {
 
     console.log(accountInfo);
 
-    Promise.resolve(this.props.login(accountInfo)).then(() => {
+    Promise.resolve(this.props.register(accountInfo)).then(() => {
       // if (this.props.isLoggedIn) {
       //   this.props.closeLoginModal(ev);
       // } else {
@@ -81,8 +81,9 @@ class RegisterForm extends React.Component {
           <FormGroup>
           <Label for="select-org">Select</Label>
           <Input type="select" name="org_id" id="select-org" onChange={this.changeHandler}>
+            <option></option>
             {this.props.orgs.map( (item, index) => {
-              return <option key={index} value={item}>{item}</option>
+              return <option key={index} value={item.id}>{item.name}</option>
             })}
           </Input>
           </FormGroup>
@@ -97,7 +98,7 @@ class RegisterForm extends React.Component {
             <Label for='phone-input'>Phone Number (optional):</Label>
             <Input
               id='phone-input'
-              type='text'
+              type='tel'
               name='phone'
               onChange={this.changeHandler}
             />
@@ -156,5 +157,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { login, getOrgs }
+  { login, getOrgs, register }
 )(RegisterForm);

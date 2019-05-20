@@ -39,18 +39,18 @@ class LoginForm extends React.Component {
         <Form onSubmit={ev => this.submitHandler(ev)}>
           <h2>Login</h2>
           <div>
-            <Label for="username-input">Username:</Label>
+            <Label for="username-input-login">Username:</Label>
             <Input
               type='text'
               name='username'
-              id="username-input"
+              id="username-input-login"
               onChange={this.changeHandler}
             />
           </div>
           <div>
-            <Label for='password-input'>Password:</Label>
+            <Label for='password-input-login'>Password:</Label>
             <Input
-              id='password-input'
+              id='password-input-login'
               type='password'
               name='password'
               onChange={this.changeHandler}
@@ -64,9 +64,9 @@ class LoginForm extends React.Component {
               placeholder='Login'
               value='Log In'
             >Log In </Button>
-            <p failedLogin={this.state.invalidLogin.toString()}>
+            {/* <p failedLogin={this.state.invalidLogin.toString()}>
               Invalid Username/Password
-            </p>
+            </p> */}
           </div>
         </Form>
       </div>

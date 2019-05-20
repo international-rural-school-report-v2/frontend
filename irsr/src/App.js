@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import LoginModal from './components/LoginModal';
 import IssuesContainer from './components/IssuesContainer';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import PrivateRoute from './PrivateRoute';
 
@@ -12,13 +13,20 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />
-        <h1>International Rural School Report</h1>
-        <LoginModal buttonLabel="Login" />
-        {/* <Login buttonLabel="Login" /> */}
-        <RegisterForm />
+        <div className='main-page'>
+          <h1>International Rural School Report</h1>
+          
 
-
-        <PrivateRoute exact path="/issues" component={IssuesContainer} />
+          <Route path='/login' render={props =>
+            <div>
+              <LoginForm />
+              {/* <LoginModal buttonLabel='Login' component={LoginForm} /> */}
+              {/* <LoginModal buttonLabel='Register' component={RegisterForm} /> */}
+              <RegisterForm />
+            </div>
+          } />
+          <PrivateRoute path='/issues' component={IssuesContainer} />
+        </div>
       </div>
       <button onClick={() => window.localStorage.clear()}>Logout</button>
     </Router>

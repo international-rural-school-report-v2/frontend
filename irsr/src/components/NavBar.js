@@ -60,7 +60,8 @@ class NavBar extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    
   }
 };
 

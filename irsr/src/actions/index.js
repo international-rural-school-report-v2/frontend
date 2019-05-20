@@ -1,4 +1,5 @@
 import axios from 'axios';
+import axiosAuth from '../axiosAuth';
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_LOADING = 'LOGIN_LOADING';
@@ -26,6 +27,22 @@ export const login = credentials => dispatch => {
     });
 };
 
+export const register = credentials => dispatch => {
+  dispatch({ type: LOGIN_LOADING });
+  return axios
+    .post(`${testURL}/auth/register`, credentials)
+    .then(res => {
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('user_id', res.data.user);
+      localStorage.setItem('role', JSON.stringify(res.data.org_roles));
+      console.log(res.data);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: LOGIN_FAILURE, payload: err });
+    });
+};
+
 export const getOrgs = () => dispatch => {
   dispatch({ type: GETTING_ORGS });
   return axios
@@ -37,4 +54,60 @@ export const getOrgs = () => dispatch => {
     .catch(err => {
       dispatch({ type: GET_ORGS_FAILURE, payload: err });
     });
+}
+
+export const GETTING_ISSUES = 'GETTING_ISSUES';
+export const GET_ISSUES_SUCCESS = 'GET_ISSUES_SUCCESS';
+export const GET_ISSUES_FAILURE = 'GET_ISSUES_FAILURE';
+
+export const getIssues = () => dispatch => {
+  dispatch({ type: GETTING_ISSUES });
+  return axiosAuth
+    .get(`${testURL}stuff`)
+    .then(res => {
+      console.log(res.data);
+      dispatch({ type: GET_ISSUES_SUCCESS })
+    })
+    .catch(err => {
+      dispatch({ type: GET_ISSUES_FAILURE, payload: err })
+    })
+}
+
+export const addIssue = issue => dispatch => {
+  dispatch({ type: GETTING_ISSUES });
+  return axiosAuth
+    .post(`${testURL}stuff`)
+    .then(res => {
+      console.log(res.data);
+      dispatch({ type: GET_ISSUES_SUCCESS })
+    })
+    .catch(err => {
+      dispatch({ type: GET_ISSUES_FAILURE, payload: err })
+    })
+}
+
+export const updateIssue = (id, issue) => dispatch => {
+  dispatch({ type: GETTING_ISSUES });
+  return axiosAuth
+    .put(`${testURL}stuff`)
+    .then(res => {
+      console.log(res.data);
+      dispatch({ type: GET_ISSUES_SUCCESS })
+    })
+    .catch(err => {
+      dispatch({ type: GET_ISSUES_FAILURE, payload: err })
+    })
+}
+
+export const deleteIssue = id => dispatch => {
+  dispatch({ type: GETTING_ISSUES });
+  return axiosAuth
+    .delete(`${testURL}stuff`, id)
+    .then(res => {
+      console.log(res.data);
+      dispatch({ type: GET_ISSUES_SUCCESS })
+    })
+    .catch(err => {
+      dispatch({ type: GET_ISSUES_FAILURE, payload: err })
+    })
 }

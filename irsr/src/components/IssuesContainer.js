@@ -12,7 +12,7 @@ class IssuesContainer extends React.Component {
       <div>
         <p>issues container</p>
         <IssuesList issues={this.props.issues} />
-
+        
         <Route
           path='/issues/:id'
           render={props => (
