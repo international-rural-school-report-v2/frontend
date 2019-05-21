@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Issue from './Issue';
 import IssuesList from './IssuesList'
 import AddIssueForm from './AddIssueForm';
-import SortIssuesButtons from './SortIssuesButtons';
 import { getIssues, login, register, filterIssues } from '../actions';
 
 
@@ -37,14 +36,13 @@ class IssuesContainer extends React.Component {
           )}
         />
         <p>issues container</p>
-        <SortIssuesButtons
-          filterIssues = {this.props.filterIssues} 
-        />
         <Route
           exact
           path='/issues'
           render={props => (
-            <IssuesList {...props} issues={this.props.displayedIssues}
+            <IssuesList {...props} 
+            filterIssues={this.props.filterIssues}
+            issues={this.props.displayedIssues}
             />
           )}
         />

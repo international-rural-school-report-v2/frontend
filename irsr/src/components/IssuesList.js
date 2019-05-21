@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import IssueCard from './IssueCard';
+import SortIssuesButtons from './SortIssuesButtons';
 import { Card } from 'reactstrap';
 
 const IssuesList = props => {
@@ -10,6 +11,9 @@ const IssuesList = props => {
 
   return (
     <div>
+      <SortIssuesButtons
+          filterIssues={props.filterIssues} 
+        />
       {props.issues.map( (issue, index) => {
         return (
           <div key={index} className="issue-box">
