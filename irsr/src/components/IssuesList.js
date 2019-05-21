@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import IssueCard from './IssueCard';
+import { Card } from 'reactstrap';
 
 const IssuesList = props => {
   if(!props.issues) {
@@ -12,7 +13,9 @@ const IssuesList = props => {
         return (
           <div key={index} className="issue-box">
             <NavLink to={`/issues/${issue.id}`}>
+              <Card>
               <IssueCard issue={issue}/>
+              </Card>
             </NavLink>
           </div>
         )

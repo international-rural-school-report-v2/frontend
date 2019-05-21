@@ -4,11 +4,8 @@ import { connect } from 'react-redux';
 import Issue from './Issue';
 import IssuesList from './IssuesList'
 import AddIssueForm from './AddIssueForm';
-import { getIssues, login, register } from '../actions';
-import LoginModal from './LoginModal';
-import LoginForm from './LoginForm'
-import RegisterForm from './RegisterForm';
-import Login from './Login';
+import SortIssuesButtons from './SortIssuesButtons';
+import { getIssues, login, register, filterIssues } from '../actions';
 
 
 class IssuesContainer extends React.Component {
@@ -21,23 +18,23 @@ class IssuesContainer extends React.Component {
     console.log(this.props.issues)
     return (
       <div>
-        <AddIssueForm />
-        {/* <LoginModal 
-          buttonSubmit={this.props.login} 
-          buttonSubmitMessage='Login' 
-          buttonLabel="Login"
-          />
-        <LoginModal 
-          buttonSubmit={this.props.register} 
-          buttonSubmitMessage='Register' 
-          buttonLabel="Register"
-        /> */}
-        <p>issues container</p>
         <Route
           exact
           path='/issues'
           render={props => (
-            <IssuesList {...props} issues={this.props.issues}
+            <AddIssueForm {...props} issues={this.props.issues}
+            />
+          )}
+        />
+        <p>issues container</p>
+        <SortIssuesButtons
+          filterIssues = {this.props.filterIssues} 
+        />
+        <Route
+          exact
+          path='/issues'
+          render={props => (
+            <IssuesList {...props} issues={this.props.displayedIssues}
             />
           )}
         />
@@ -64,10 +61,11 @@ class IssuesContainer extends React.Component {
 
 const mapStateToProps = state => ({
   issues: state.issues,
-  org_id: state.org_id
+  org_id: state.org_id,
+  displayedIssues: state.displayedIssues
 });
 
 export default connect(
   mapStateToProps,
-  { getIssues, login, register }
+  { getIssues, login, register, filterIssues }
 )(IssuesContainer);
