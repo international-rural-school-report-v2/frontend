@@ -1,6 +1,7 @@
 .irsr-nav {
-  width: 15%;
-  max-width: 125px;
+  width: 10%;
+  max-width: 170px;
   height: 80vh;
   border: 1px solid black;
+  overflow: hidden;
 }
