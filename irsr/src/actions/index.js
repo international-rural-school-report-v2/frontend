@@ -1,5 +1,5 @@
 import axios from 'axios';
-import axiosAuth from '../axiosAuth';
+import { axiosAuth } from '../axiosAuth';
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_LOADING = 'LOGIN_LOADING';
@@ -62,11 +62,11 @@ export const GET_ISSUES_FAILURE = 'GET_ISSUES_FAILURE';
 
 export const getIssues = () => dispatch => {
   dispatch({ type: GETTING_ISSUES });
-  return axiosAuth
-    .get(`${testURL}stuff`)
+  axiosAuth()
+    .get(`${testURL}/issues`)
     .then(res => {
       console.log(res.data);
-      dispatch({ type: GET_ISSUES_SUCCESS })
+      dispatch({ type: GET_ISSUES_SUCCESS, payload: res.data })
     })
     .catch(err => {
       dispatch({ type: GET_ISSUES_FAILURE, payload: err })

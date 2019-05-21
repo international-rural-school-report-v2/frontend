@@ -8,9 +8,9 @@ const IssueCard = props => {
       <Card>
         <CardBody>
           <CardTitle>{props.issue.name}</CardTitle>
-          <CardSubtitle>{props.issue.org_id}</CardSubtitle>
+          <CardSubtitle>{props.issue.org_name}</CardSubtitle>
           <CardText>{props.issue.comments}</CardText>
-          <Button>Button</Button>
+          {/* <Button>Button</Button> */}
         </CardBody>
       </Card>
     </div>
