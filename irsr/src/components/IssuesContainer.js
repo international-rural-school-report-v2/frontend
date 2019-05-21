@@ -14,8 +14,18 @@ class IssuesContainer extends React.Component {
     this.props.getIssues(this.props.org_id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.issues !== this.props.issues || prevProps.displayIssues !== this.props.displayIssues) {
+      this.setState({
+        issues: this.props.issues,
+        org_id: this.props.org_id,
+        displayedIssues: this.props.displayedIssues
+      })
+    }
+  };
+
   render() {
-    console.log(this.props.issues)
+    console.log(this.props.displayedIssues)
     return (
       <div>
         <Route

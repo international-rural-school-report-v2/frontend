@@ -7,6 +7,7 @@ const IssuesList = props => {
   if(!props.issues) {
     return <h3>Loading issues...</h3>
   }
+
   return (
     <div>
       {props.issues.map( (issue, index) => {

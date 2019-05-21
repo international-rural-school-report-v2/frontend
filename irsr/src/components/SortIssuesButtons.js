@@ -6,6 +6,8 @@ class SortIssuesButtons extends React.Component {
   render() { 
     return (
       <div className='sort-issues'>
+        <Button onClick={() => this.props.filterIssues(0)}>
+          All</Button>
         <Button onClick={() => this.props.filterIssues(1)}>
           Done</Button>
         <Button onClick={() => this.props.filterIssues(2)}>

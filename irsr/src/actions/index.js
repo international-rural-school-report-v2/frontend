@@ -11,6 +11,7 @@ export const FILTER_ISSUES = 'FILTER_ISSUES';
 
 export const baseURL='https://irsr-backend.herokuapp.com';
 export const testURL='https://irsr-be-dev.herokuapp.com';
+let token = localStorage.getItem('token');
 
 export const login = credentials => dispatch => {
   dispatch({ type: LOGIN_LOADING });
@@ -75,10 +76,10 @@ export const getIssues = () => dispatch => {
     })
 }
 
-export const addIssue = (issue, org_id) => dispatch => {
+export const addIssue = (issue) => dispatch => {
   dispatch({ type: GETTING_ISSUES });
   axiosAuth()
-    .post(`${testURL}/issues/org/${org_id}`, issue)
+    .post(`${testURL}/issues`, issue)
     .then(res => {
       console.log(res.data);
       dispatch({ type: ADD_ISSUE_SUCCESS, payload: res.data })
@@ -103,8 +104,8 @@ export const updateIssue = (issue, id) => dispatch => {
 
 export const deleteIssue = id => dispatch => {
   dispatch({ type: GETTING_ISSUES });
-  return axiosAuth
-    .delete(`${testURL}stuff`, id)
+  axiosAuth()
+    .delete(`${testURL}/issues/${id}`, id)
     .then(res => {
       console.log(res.data);
       dispatch({ type: GET_ISSUES_SUCCESS })

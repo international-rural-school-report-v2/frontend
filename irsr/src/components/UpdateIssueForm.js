@@ -19,8 +19,7 @@ class UpdateIssueForm extends React.Component {
     const newIssue = {
       name: this.state.issueName,
       comments: this.state.issueComments,
-      status_id: this.state.status_id,
-      org_id: this.props.org_id
+      status_id: this.state.status_id
     };
     Promise.resolve(this.props.updateIssue(newIssue, this.props.id))
     // .then(() => {

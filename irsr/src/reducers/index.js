@@ -72,13 +72,17 @@ export const reducer = (state = initialState, action) => {
     case ADD_ISSUE_SUCCESS:
       return {
         ...state,
-        issues: action.payload
+        issues: action.payload,
+        displayedIssues: action.payload
       }
     case FILTER_ISSUES:
       return {
         ...state,
         displayedIssues: state.issues.filter( issue => {
-          if(issue.status_id === action.payload) {
+          console.log(action.payload);
+          if(action.payload === 0) {
+            return true;
+          } else if(issue.status_id === action.payload) {
             return true;
           } else {
             return false;

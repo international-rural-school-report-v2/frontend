@@ -20,24 +20,16 @@ class AddIssueForm extends React.Component {
   submitHandler = ev => {
     ev.preventDefault();
     const newIssue = {
-      name: this.state.issueName,
-      comments: this.state.issueComments,
-      status_id: this.state.status_id
+      'name': this.state.issueName,
+      'comments': this.state.issueComments,
+      'status_id': this.state.status_id
     };
-    Promise.resolve(this.props.addIssue(newIssue, this.props.org_id))
-    // .then(() => {
-      // if (this.props.isLoggedIn) {
-      //   this.props.closeLoginModal(ev);
-      // } else {
-      // console.log('this.props.isLoggedIn() = ', this.props.isLoggedIn);
-      // this.setState({ invalidLogin: true });
-      // }
-    // });
+    
+    this.props.addIssue(newIssue)
   };
 
 
-  render() { 
-    console.log(this.props.org_id)
+  render() {
     return (
       <Form onSubmit={ev => this.submitHandler(ev)}>
           <h2>Submit Issue</h2>
