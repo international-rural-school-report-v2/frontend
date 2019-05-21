@@ -87,13 +87,13 @@ export const addIssue = (issue, org_id) => dispatch => {
     })
 }
 
-export const updateIssue = (id, issue) => dispatch => {
+export const updateIssue = (issue, id) => dispatch => {
   dispatch({ type: GETTING_ISSUES });
-  return axiosAuth
-    .put(`${testURL}stuff`)
+  axiosAuth()
+    .put(`${testURL}/issues/${id}`, issue)
     .then(res => {
       console.log(res.data);
-      dispatch({ type: GET_ISSUES_SUCCESS })
+      dispatch({ type: ADD_ISSUE_SUCCESS, payload: res.data })
     })
     .catch(err => {
       dispatch({ type: GET_ISSUES_FAILURE, payload: err })

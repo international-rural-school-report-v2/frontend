@@ -33,8 +33,14 @@ class IssuesContainer extends React.Component {
           buttonLabel="Register"
         /> */}
         <p>issues container</p>
-        <IssuesList issues={this.props.issues} />
-
+        <Route
+          exact
+          path='/issues'
+          render={props => (
+            <IssuesList {...props} issues={this.props.issues}
+            />
+          )}
+        />
         <Route
           path='/issues/:id'
           render={props => (

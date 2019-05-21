@@ -1,4 +1,5 @@
 import React from 'react';
+import UpdateIssueForm from './UpdateIssueForm';
 
 
 const Issue = props => {
@@ -13,6 +14,7 @@ const Issue = props => {
     <div className="issue">
       <h3>{issue.name}</h3>
       <p>{issue.comments}</p>
+      <UpdateIssueForm id={issue.id} />
     </div>
 
   );
