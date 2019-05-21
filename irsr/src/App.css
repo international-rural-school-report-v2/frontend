@@ -2,15 +2,19 @@
   /* text-align: center; */
   display: flex;
   flex-flow: row wrap;
+  flex-direction: column;
+  width: 100%;
 }
 
 .main-page {
-  width: 80%;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
 }
 
 h1 {
   height: 100px;
-  width: 80%;
+  width: 100%;
   text-align: center;
 }
 

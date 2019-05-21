@@ -9,7 +9,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from 'reactstrap';
 
 import '../styles/nav.css';
 import { NavLink } from 'react-router-dom';
@@ -34,26 +35,29 @@ class NavBar extends React.Component {
 
   render() {
     return (
-        <Navbar 
-          vertical 
-          className='irsr-nav' 
-          color="faded" light 
-          expand="md" 
-        >
-          <NavbarToggler onClick={this.toggle} />
-          {/* <NavbarBrand href="/">IRSR</NavbarBrand> */}
-          
-          <Collapse isOpen={this.state.isOpen} navbar className="nav-collapse" >
-            <Nav vertical className="ml-auto" navbar>
-              <NavItem>
-                <NavLink className="nav-link" activeClassName="active" to="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" activeClassName="active" to="/issues">Issues</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
+      <Navbar
+        vertical
+        className='irsr-nav'
+        color="faded" light
+        expand="md"
+      >
+        <NavbarToggler onClick={this.toggle} />
+        {/* <NavbarBrand href="/">IRSR</NavbarBrand> */}
+
+        <Collapse isOpen={this.state.isOpen} navbar className="nav-collapse" >
+          <Nav vertical className="ml-auto" navbar>
+            <NavItem>
+              <NavLink className="nav-link" activeClassName="active" to="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" activeClassName="active" to="/issues">Issues</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" activeClassName="active" to="/teacher-attendance">Teacher&nbsp;Attendance</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }
@@ -61,7 +65,7 @@ class NavBar extends React.Component {
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.isLoggedIn,
-    
+
   }
 };
 
