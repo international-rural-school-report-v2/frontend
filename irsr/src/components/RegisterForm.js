@@ -13,8 +13,6 @@ class RegisterForm extends React.Component {
       name: '',
       role_id: '',
       org_id: '',
-      phone: '',
-      email: ''
     };
   }
 
@@ -45,7 +43,7 @@ class RegisterForm extends React.Component {
 
     console.log(accountInfo);
 
-    this.props.register(accountInfo).then(() => {
+    Promise.resolve(this.props.register(accountInfo)).then(() => {
       this.props.history.push('/issues')
     })
     // .then(() => {
