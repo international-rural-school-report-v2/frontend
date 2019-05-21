@@ -36,7 +36,6 @@ class NavBar extends React.Component {
   render() {
     return (
       <Navbar
-        vertical
         className='irsr-nav'
         color="faded" light
         expand="md"
