@@ -23,22 +23,18 @@ class LoginForm extends React.Component {
       username: this.state.username,
       password: this.state.password
     };
-    Promise.resolve(this.props.login(credentials)).then(() => {
-      // if (this.props.isLoggedIn) {
-      //   this.props.closeLoginModal(ev);
-      // } else {
-      console.log('this.props.isLoggedIn() = ', this.props.isLoggedIn);
-      this.setState({ invalidLogin: true });
-      // }
+    this.props.login(credentials).then(() => {
+      this.props.history.push('/issues')
     });
+    // Promise.resolve()
   };
-
+  
   render() {
     return (
       // <div onClick={ev => ev.stopPropagation()}>
         <Form onSubmit={ev => this.submitHandler(ev)}>
           <h2>Login</h2>
-          <div>
+          <FormGroup>
             <Label for="username-input-login">Username:</Label>
             <Input
               type='text'
@@ -46,8 +42,8 @@ class LoginForm extends React.Component {
               id="username-input-login"
               onChange={this.changeHandler}
             />
-          </div>
-          <div>
+          </FormGroup>
+          <FormGroup>
             <Label for='password-input-login'>Password:</Label>
             <Input
               id='password-input-login'
@@ -55,8 +51,8 @@ class LoginForm extends React.Component {
               name='password'
               onChange={this.changeHandler}
             />
-          </div>
-          <div>
+          </FormGroup>
+          <FormGroup>
             <Button
               className='login-btn'
               color="primary"
@@ -67,7 +63,7 @@ class LoginForm extends React.Component {
             {/* <p failedLogin={this.state.invalidLogin.toString()}>
               Invalid Username/Password
             </p> */}
-          </div>
+          </FormGroup>
         </Form>
       // </div>
     );

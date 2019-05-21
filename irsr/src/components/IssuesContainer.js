@@ -14,7 +14,7 @@ import Login from './Login';
 class IssuesContainer extends React.Component {
 
   componentDidMount() {
-    this.props.getIssues();
+    this.props.getIssues(this.props.org_id);
   }
 
   render() {
@@ -48,13 +48,13 @@ class IssuesContainer extends React.Component {
             />
           )}
         />
-        <Route
+        {/* <Route
           exact
           path='/login'
           render={props => (
             <Login />
           )}
-        />
+        /> */}
       </div>
       );
   }
@@ -63,7 +63,8 @@ class IssuesContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  issues: state.issues
+  issues: state.issues,
+  org_id: state.org_id
 });
 
 export default connect(

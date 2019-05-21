@@ -45,14 +45,17 @@ class RegisterForm extends React.Component {
 
     console.log(accountInfo);
 
-    Promise.resolve(this.props.register(accountInfo)).then(() => {
+    this.props.register(accountInfo).then(() => {
+      this.props.history.push('/issues')
+    })
+    // .then(() => {
       // if (this.props.isLoggedIn) {
       //   this.props.closeLoginModal(ev);
       // } else {
-      console.log('this.props.isLoggedIn() = ', this.props.isLoggedIn);
-      this.setState({ invalidLogin: true });
+      // console.log('this.props.isLoggedIn() = ', this.props.isLoggedIn);
+      // this.setState({ invalidLogin: true });
       // }
-    });
+    // });
   };
 
   render() {
@@ -61,7 +64,7 @@ class RegisterForm extends React.Component {
     }
     // onSubmit={ev => this.submitHandler(ev)
     return (
-        <Form>
+        <Form onSubmit={ev => this.submitHandler(ev)}>
           <h2>Register</h2>
           <FormGroup>
             <Label for="username-input">Username:</Label>
@@ -136,12 +139,12 @@ class RegisterForm extends React.Component {
               className='login-btn'
               color="primary"
               type='submit'
-              placeholder='Login'
-              value='Log In'
+              placeholder='Register'
+              value='Register'
             >Register </Button>
-            <p failedLogin={this.state.invalidLogin.toString()}>
+            {/* <p failedLogin={this.state.invalidLogin.toString()}>
               Invalid Username/Password
-            </p>
+            </p> */}
           </FormGroup>
         </Form>
     );

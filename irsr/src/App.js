@@ -19,10 +19,10 @@ function App() {
 
           <Route path='/login' render={props =>
             <div>
-              <LoginForm />
+              <LoginForm {...props} />
               {/* <LoginModal buttonLabel='Login' component={LoginForm} /> */}
               {/* <LoginModal buttonLabel='Register' component={RegisterForm} /> */}
-              <RegisterForm />
+              <RegisterForm {...props} />
             </div>
           } />
           <PrivateRoute path='/issues' component={IssuesContainer} />

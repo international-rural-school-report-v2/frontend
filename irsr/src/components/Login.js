@@ -1,11 +1,12 @@
 import React from 'react';
-import LoginModal from './LoginModal';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 const Login = props => {
   return (
     <div className='login-page'>
-      <LoginModal buttonLabel="Login" />
-      <LoginModal buttonLabel="Register" />
+      <LoginForm />
+      <RegisterForm />
     </div>
     );
 }
