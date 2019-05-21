@@ -1,6 +1,7 @@
 import React from 'react';
 import UpdateIssueForm from './UpdateIssueForm';
-
+import { Card } from 'reactstrap';
+import IssueCard from './IssueCard';
 
 const Issue = props => {
 
@@ -11,11 +12,10 @@ const Issue = props => {
   }
 
   return (
-    <div className="issue">
-      <h3>{issue.name}</h3>
-      <p>{issue.comments}</p>
+    <Card>
+      <IssueCard issue={issue} />
       <UpdateIssueForm id={issue.id} />
-    </div>
+    </Card>
 
   );
 }

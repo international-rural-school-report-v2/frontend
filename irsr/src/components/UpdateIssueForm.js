@@ -38,7 +38,7 @@ class UpdateIssueForm extends React.Component {
     console.log(this.props.org_id)
     return (
       <Form onSubmit={ev => this.submitHandler(ev)}>
-          <h2>Submit Issue</h2>
+          <h2>Update Issue</h2>
           <div>
             <Label for="issue-name-input">Issue Name:</Label>
             <Input

@@ -2,7 +2,6 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import './App.css';
 import Header from './components/Header.js';
-import LoginModal from './components/LoginModal';
 import IssuesContainer from './components/IssuesContainer';
 import Footer from './components/Footer.js';
 import TeacherAttendance from './pageviews/TeacherAttendance.js'

@@ -7,6 +7,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const GETTING_ORGS = 'GETTING_ORGS';
 export const GET_ORGS_SUCCESS = 'GET_ORGS_SUCCESS';
 export const GET_ORGS_FAILURE = 'GET_ORGS_FAILURE';
+export const FILTER_ISSUES = 'FILTER_ISSUES';
 
 export const baseURL='https://irsr-backend.herokuapp.com';
 export const testURL='https://irsr-be-dev.herokuapp.com';
@@ -112,3 +113,10 @@ export const deleteIssue = id => dispatch => {
       dispatch({ type: GET_ISSUES_FAILURE, payload: err })
     })
 }
+
+export const filterIssues = status_id => (
+  {
+    type: FILTER_ISSUES,
+    payload: status_id
+  }
+)
