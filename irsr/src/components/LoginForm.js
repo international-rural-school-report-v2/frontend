@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div onClick={ev => ev.stopPropagation()}>
+      // <div onClick={ev => ev.stopPropagation()}>
         <Form onSubmit={ev => this.submitHandler(ev)}>
           <h2>Login</h2>
           <div>
@@ -69,7 +69,7 @@ class LoginForm extends React.Component {
             </p> */}
           </div>
         </Form>
-      </div>
+      // </div>
     );
   }
 }

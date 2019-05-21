@@ -14,6 +14,7 @@
 
 // export default LoginModal;
 import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
@@ -41,10 +42,19 @@ class LoginModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Enter Account Information</ModalHeader>
           <ModalBody>
-            {this.props.component}
+            {(this.props.buttonLabel === 'Login') && (
+              <LoginForm />
+            )}
+            {(this.props.buttonLabel === 'Register') && (
+              <RegisterForm />
+            )}
           </ModalBody>
           {/* <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="primary" 
+              onClick={this.toggle}
+              onClick={this.props.buttonSubmit}>
+              {this.props.buttonSubmitMessage}
+            </Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter> */}
         </Modal>

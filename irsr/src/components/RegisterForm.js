@@ -59,8 +59,9 @@ class RegisterForm extends React.Component {
     if(!this.props.orgsFetched) {
       return <h1>Loading...</h1>
     }
+    // onSubmit={ev => this.submitHandler(ev)
     return (
-        <Form onSubmit={ev => this.submitHandler(ev)}>
+        <Form>
           <h2>Register</h2>
           <FormGroup>
             <Label for="username-input">Username:</Label>

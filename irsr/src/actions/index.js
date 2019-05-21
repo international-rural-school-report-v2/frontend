@@ -59,6 +59,7 @@ export const getOrgs = () => dispatch => {
 export const GETTING_ISSUES = 'GETTING_ISSUES';
 export const GET_ISSUES_SUCCESS = 'GET_ISSUES_SUCCESS';
 export const GET_ISSUES_FAILURE = 'GET_ISSUES_FAILURE';
+export const ADD_ISSUE_SUCCESS = 'ADD_ISSUE_SUCCESS';
 
 export const getIssues = () => dispatch => {
   dispatch({ type: GETTING_ISSUES });
@@ -73,13 +74,13 @@ export const getIssues = () => dispatch => {
     })
 }
 
-export const addIssue = issue => dispatch => {
+export const addIssue = (issue, org_id) => dispatch => {
   dispatch({ type: GETTING_ISSUES });
-  return axiosAuth
-    .post(`${testURL}stuff`)
+  axiosAuth()
+    .post(`${testURL}/issues/org/${org_id}`, issue)
     .then(res => {
       console.log(res.data);
-      dispatch({ type: GET_ISSUES_SUCCESS })
+      dispatch({ type: ADD_ISSUE_SUCCESS, payload: res.data })
     })
     .catch(err => {
       dispatch({ type: GET_ISSUES_FAILURE, payload: err })
