@@ -132,12 +132,9 @@ export const GET_TEACERS_ATTENDANCE_SUCCESS = 'GET_TEACERS_ATTENDANCE_SUCCESS';
 export const GET_TEACERS_ATTENDANCE_FAILURE = 'GET_TEACERS_ATTENDANCE_FAILURE';
 
 export const getTeachersAttendance = () => dispatch => {
-  console.log("Hello WOrld!!!");
   dispatch({ type: GETTING_TEACERS_ATTENDANCE });
   Promise.resolve(teacherAttendanceData)
     .then(data => {
-      console.log("foobar");
-      console.log("teacherAttendanceData", data);
       dispatch({ type: GET_TEACERS_ATTENDANCE_SUCCESS, payload: data });
     })
     .catch(err => {
