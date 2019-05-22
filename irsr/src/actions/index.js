@@ -11,7 +11,7 @@ export const FILTER_ISSUES = 'FILTER_ISSUES';
 
 export const baseURL = 'https://irsr-backend.herokuapp.com';
 export const testURL = 'https://irsr-be-dev.herokuapp.com';
-let token = localStorage.getItem('token');
+// let token = localStorage.getItem('token');
 
 // globals
 const { teacherAttendanceData } = require('../globals/DummyData.js')

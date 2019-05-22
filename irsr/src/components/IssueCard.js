@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { CardText, CardBody,
+  CardTitle, CardSubtitle } from 'reactstrap';
 
 const IssueCard = props => {
 
@@ -18,6 +18,8 @@ const IssueCard = props => {
     case 4:
       statusID = 'Ignored';
       break;
+    default: 
+      statusID = 'Open';
   }
 
   return (
