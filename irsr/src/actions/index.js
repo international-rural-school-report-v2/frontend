@@ -107,7 +107,7 @@ export const DELETE_ISSUE_SUCCESS = 'DELETE_ISSUE_SUCCESS';
 export const deleteIssue = id => dispatch => {
   dispatch({ type: GETTING_ISSUES });
   axiosAuth()
-    .delete(`${testURL}/issues/${id}`)
+    .delete(`${testURL}/issues/${id}`, id)
     .then(res => {
       console.log(res);
       dispatch({ type: DELETE_ISSUE_SUCCESS, payload: res.data })

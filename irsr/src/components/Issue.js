@@ -1,7 +1,8 @@
 import React from 'react';
 import UpdateIssueForm from './UpdateIssueForm';
-import { Card, Button } from 'reactstrap';
+import { Card, Button, FormGroup } from 'reactstrap';
 import IssueCard from './IssueCard';
+import '../styles/issues-container.css';
 
 const Issue = props => {
 
@@ -12,15 +13,24 @@ const Issue = props => {
   }
 
   return (
-    <Card>
+    <Card className='single-issue-card'>
       <IssueCard issue={issue} />
-      <Button onClick={() => {
-        props.deleteIssue(issue.id);
-        props.history.push('/issues')
-        }}>
-        Delete Issue
+      <FormGroup>
+        <Button 
+          color='danger' 
+          className='login-btn'
+          type='submit'
+          placeholder='Delete Issue'
+          value='Delete Issue'
+          onClick={ev => {
+          ev.preventDefault();
+          props.deleteIssue(issue.id);
+          props.history.push('/issues');
+          }}>
+          Delete Issue
         </Button>
-      <UpdateIssueForm id={issue.id} />
+      </FormGroup>
+      <UpdateIssueForm issueId={issue.id} />
     </Card>
   );
 }

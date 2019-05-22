@@ -5,8 +5,8 @@ import SortIssuesButtons from './SortIssuesButtons';
 import { Card } from 'reactstrap';
 
 const IssuesList = props => {
-  
-  if(!props.issues) {
+
+  if(!props.issues || !Array.isArray(props.issues)) {
     return <h3>Loading issues...</h3>
   }
 

@@ -27,3 +27,18 @@
 .login-btn {
   margin-top: 10px;
 }
+
+.add-issue-form {
+  width: 50%;
+  margin-top: 25px;
+}
+
+.single-issue-card {
+  width: 60%;
+  margin: 25px auto;
+}
+
+.single-issue-form {
+  width: 65%;
+  margin-top: 25px;
+}
