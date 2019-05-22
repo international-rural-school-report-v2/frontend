@@ -20,6 +20,7 @@ const DivHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid black;
+  top: 0;
   position: fixed;
   z-index: 3;
   width: 100%;

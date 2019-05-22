@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import DataTable from '../components/DataTable.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-// globals
-const { teacherAttendanceData } = require('../globals/DummyData.js')
+import { getTeachersAttendance } from '../actions/index.js';
 
 
 
@@ -31,6 +29,7 @@ const StickyDiv = styled.div`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const TeacherAttendance = props => {
+  props.getTeachersAttendance();
   return (
     <DivWrapper>
       <h1>Teacher&nbsp;Attendance</h1>
@@ -40,7 +39,7 @@ const TeacherAttendance = props => {
             header={[
               'Name', 'Date', 'In', 'Out', 'TMM'
             ]}
-            data={teacherAttendanceData}
+            data={props.teachersAttendance}
           />
         </MuiThemeProvider>
       </StickyDiv>
@@ -54,5 +53,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {}
+  { getTeachersAttendance }
 )(TeacherAttendance);

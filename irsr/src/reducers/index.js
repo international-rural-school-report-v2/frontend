@@ -1,18 +1,22 @@
-import { 
-  LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE, 
-  GET_ORGS_FAILURE, GETTING_ORGS, GET_ORGS_SUCCESS, 
+import {
+  LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE,
+  GET_ORGS_FAILURE, GETTING_ORGS, GET_ORGS_SUCCESS,
   GETTING_ISSUES, GET_ISSUES_SUCCESS, GET_ISSUES_FAILURE,
-  ADD_ISSUE_SUCCESS, FILTER_ISSUES
-}  from '../actions';
+  ADD_ISSUE_SUCCESS, FILTER_ISSUES, GETTING_TEACERS_ATTENDANCE,
+  GET_TEACERS_ATTENDANCE_SUCCESS, GET_TEACERS_ATTENDANCE_FAILURE
+} from '../actions';
 
 const initialState = {
-  issues: []
+  issues: [],
   // isLoggedIn: null,
-  // orgsFetched: false
+  // orgsFetched: false,
+  teachersAttendanceLoading: false,
+  teachersAttendance: [],
+  error: ""
 };
 
 export const reducer = (state = initialState, action) => {
-  switch(action.type){
+  switch (action.type) {
     // Login
     case LOGIN_LOADING:
       return {
@@ -44,7 +48,7 @@ export const reducer = (state = initialState, action) => {
         message: "",
         user: {}
       }
-    case GET_ORGS_SUCCESS: 
+    case GET_ORGS_SUCCESS:
       return {
         ...state,
         orgsFetched: true,
@@ -75,14 +79,31 @@ export const reducer = (state = initialState, action) => {
         issues: action.payload,
         displayedIssues: action.payload
       }
+    case GETTING_TEACERS_ATTENDANCE:
+      return {
+        ...state,
+        teachersAttendanceLoading: true
+      }
+    case GET_TEACERS_ATTENDANCE_SUCCESS:
+      return {
+        ...state,
+        teachersAttendance: action.payload,
+        teachersAttendanceLoading: false
+      }
+    case GET_TEACERS_ATTENDANCE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        teachersAttendanceLoading: false
+      }
     case FILTER_ISSUES:
       return {
         ...state,
-        displayedIssues: state.issues.filter( issue => {
+        displayedIssues: state.issues.filter(issue => {
           console.log(action.payload);
-          if(action.payload === 0) {
+          if (action.payload === 0) {
             return true;
-          } else if(issue.status_id === action.payload) {
+          } else if (issue.status_id === action.payload) {
             return true;
           } else {
             return false;
