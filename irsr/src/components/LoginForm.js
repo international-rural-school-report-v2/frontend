@@ -31,7 +31,6 @@ class LoginForm extends React.Component {
   
   render() {
     return (
-      // <div onClick={ev => ev.stopPropagation()}>
         <Form onSubmit={ev => this.submitHandler(ev)}>
           <h2>Login</h2>
           <FormGroup>
@@ -63,7 +62,6 @@ class LoginForm extends React.Component {
             </p> */}
           </FormGroup>
         </Form>
-      // </div>
     );
   }
 }

@@ -69,7 +69,6 @@ export const reducer = (state = initialState, action) => {
         displayedIssues: action.payload
       }
     case GET_ISSUES_FAILURE:
-      console.log(action.payload);
       return {
         ...state,
         error: action.payload,
@@ -102,7 +101,6 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         displayedIssues: state.issues.filter(issue => {
-          console.log(action.payload);
           if (action.payload === 0) {
             return true;
           } else if (issue.status_id === action.payload) {
