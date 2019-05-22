@@ -4,11 +4,16 @@ import { connect } from 'react-redux';
 import Issue from './Issue';
 import IssuesList from './IssuesList'
 import AddIssueForm from './AddIssueForm';
-import SortIssuesButtons from './SortIssuesButtons';
-import { getIssues, login, register, filterIssues } from '../actions';
+import { getIssues, login, register, filterIssues, deleteIssue } from '../actions';
+
+import { Container } from 'reactstrap';
+import '../styles/issues-container.css';
 
 
 class IssuesContainer extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount() {
     this.props.getIssues(this.props.org_id);
@@ -25,9 +30,8 @@ class IssuesContainer extends React.Component {
   };
 
   render() {
-    console.log(this.props.displayedIssues)
     return (
-      <div>
+      <Container className='issues-container'>
         <Route
           exact
           path='/issues'
@@ -36,22 +40,22 @@ class IssuesContainer extends React.Component {
             />
           )}
         />
-        <p>issues container</p>
-        <SortIssuesButtons
-          filterIssues = {this.props.filterIssues} 
-        />
         <Route
           exact
           path='/issues'
           render={props => (
-            <IssuesList {...props} issues={this.props.displayedIssues}
+            <IssuesList {...props} 
+            filterIssues={this.props.filterIssues}
+            issues={this.props.displayedIssues}
             />
           )}
         />
         <Route
           path='/issues/:id'
           render={props => (
-            <Issue {...props} issues={this.props.issues}
+            <Issue {...props} 
+              issues={this.props.issues}
+              deleteIssue={this.props.deleteIssue}
             />
           )}
         />
@@ -62,7 +66,7 @@ class IssuesContainer extends React.Component {
             <Login />
           )}
         /> */}
-      </div>
+      </Container>
       );
   }
 
@@ -77,5 +81,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getIssues, login, register, filterIssues }
+  { getIssues, login, register, filterIssues, deleteIssue }
 )(IssuesContainer);

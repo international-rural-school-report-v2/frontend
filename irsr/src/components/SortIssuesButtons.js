@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Button, ButtonGroup } from 'reactstrap';
 
 class SortIssuesButtons extends React.Component {
 
   render() { 
     return (
-      <div className='sort-issues'>
+      <ButtonGroup className='sort-issues'>
         <Button onClick={() => this.props.filterIssues(0)}>
           All</Button>
         <Button onClick={() => this.props.filterIssues(1)}>
@@ -16,7 +16,7 @@ class SortIssuesButtons extends React.Component {
           Open</Button>
         <Button onClick={() => this.props.filterIssues(4)}>
           Ignored</Button>
-      </div>
+      </ButtonGroup>
     )
   }
 } 

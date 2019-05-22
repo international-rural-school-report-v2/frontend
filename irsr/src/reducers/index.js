@@ -2,9 +2,14 @@ import {
   LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE,
   GET_ORGS_FAILURE, GETTING_ORGS, GET_ORGS_SUCCESS,
   GETTING_ISSUES, GET_ISSUES_SUCCESS, GET_ISSUES_FAILURE,
+<<<<<<< HEAD
   ADD_ISSUE_SUCCESS, FILTER_ISSUES, GETTING_TEACERS_ATTENDANCE,
   GET_TEACERS_ATTENDANCE_SUCCESS, GET_TEACERS_ATTENDANCE_FAILURE
 } from '../actions';
+=======
+  ADD_ISSUE_SUCCESS, FILTER_ISSUES, DELETE_ISSUE_SUCCESS
+}  from '../actions';
+>>>>>>> 347a79db3540bbad2f2bf043961a3c5fa2ffffa0
 
 const initialState = {
   issues: [],
@@ -68,6 +73,7 @@ export const reducer = (state = initialState, action) => {
         displayedIssues: action.payload
       }
     case GET_ISSUES_FAILURE:
+      console.log(action.payload);
       return {
         ...state,
         error: action.payload,
@@ -109,6 +115,12 @@ export const reducer = (state = initialState, action) => {
             return false;
           }
         })
+      }
+    case DELETE_ISSUE_SUCCESS: 
+      return {
+        ...state,
+        issues: action.payload,
+        displayedIssues: action.payload
       }
     default:
       return state

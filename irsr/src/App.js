@@ -7,8 +7,7 @@ import Footer from './components/Footer.js';
 import TeacherAttendance from './pageviews/TeacherAttendance.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
+import Login from './components/Login';
 import PrivateRoute from './PrivateRoute';
 
 /***************************************************************************************************
@@ -46,19 +45,25 @@ function App() {
     <Router>
       <div className="App">
         <GlobalStyle />
-        <Header />
+        <Route 
+          path='/' 
+          render={props => (
+             <Header {...props} />
+          )}
+          />
         <div className='main-page'>
           <NavBar />
           <DivPageView>
-            <Route path='/login' render={props =>
-              <div>
-                <LoginForm {...props} />
-                {/* <LoginModal buttonLabel='Login' component={LoginForm} /> */}
-                {/* <LoginModal buttonLabel='Register' component={RegisterForm} /> */}
-                <RegisterForm {...props} />
-              </div>
-            } />
-            <PrivateRoute path='/issues' component={IssuesContainer} />
+            <Route 
+              path='/login' 
+              render={props => (
+             <Login {...props} />
+              )}
+            />
+            <PrivateRoute 
+              path='/issues'
+              component={IssuesContainer}
+            />
             <PrivateRoute exact path='/teacher-attendance' component={TeacherAttendance} />
           </DivPageView>
         </div>

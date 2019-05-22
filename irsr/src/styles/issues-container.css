@@ -1,0 +1,44 @@
+.issues-container {
+  width: 100%;
+}
+
+.issues-list {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.issues-container-with-buttons {
+  margin-top: 25px;
+}
+
+.issues-list-card {
+  width: 25%;
+}
+
+.login-page {
+  margin-top: 50px;
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.login-btn {
+  margin-top: 10px;
+}
+
+.add-issue-form {
+  width: 50%;
+  margin-top: 25px;
+}
+
+.single-issue-card {
+  width: 60%;
+  margin: 25px auto;
+}
+
+.single-issue-form {
+  width: 65%;
+  margin-top: 25px;
+}

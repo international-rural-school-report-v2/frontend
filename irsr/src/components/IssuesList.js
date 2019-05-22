@@ -1,26 +1,31 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import IssueCard from './IssueCard';
+import SortIssuesButtons from './SortIssuesButtons';
 import { Card } from 'reactstrap';
 
 const IssuesList = props => {
-  if(!props.issues) {
+
+  if(!props.issues || !Array.isArray(props.issues)) {
     return <h3>Loading issues...</h3>
   }
 
   return (
-    <div>
-      {props.issues.map( (issue, index) => {
-        return (
-          <div key={index} className="issue-box">
+    <div className='issues-container-with-buttons'>
+      <SortIssuesButtons
+          filterIssues={props.filterIssues} 
+        />
+      <div className='issues-list'>
+        {props.issues.map( (issue, index) => {
+          return (
+            <Card key={index} className='issues-list-card'>
             <NavLink to={`/issues/${issue.id}`}>
-              <Card>
-              <IssueCard issue={issue}/>
-              </Card>
+              <IssueCard issue={issue} />
             </NavLink>
-          </div>
-        )
-      })}
+            </Card>
+          )
+          })}
+      </div>
 
     </div>
 

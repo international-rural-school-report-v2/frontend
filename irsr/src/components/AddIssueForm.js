@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addIssue } from '../actions';
+import '../styles/issues-container.css';
 
 class AddIssueForm extends React.Component {
   constructor(props) {
@@ -31,7 +32,8 @@ class AddIssueForm extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={ev => this.submitHandler(ev)}>
+      <Form className='add-issue-form'
+            onSubmit={ev => this.submitHandler(ev)}>
           <h2>Submit Issue</h2>
           <div>
             <Label for="issue-name-input">Issue Name:</Label>
@@ -51,13 +53,14 @@ class AddIssueForm extends React.Component {
               onChange={this.changeHandler}
             />
           </div>
-          <Input type="select" name="status_id" id="status-id" onChange={this.changeHandler}>
-            <option></option>
-            <option value={1}>Done</option>
-            <option value={2}>Scheduled</option>
-            <option value={3}>Open</option>
-            <option value={4}>Ignored</option>
-          </Input>
+            <Label for='status-id'>Issue Status:</Label>
+            <Input type="select" name="status_id" id="status-id" onChange={this.changeHandler}>
+              <option></option>
+              <option value={1}>Done</option>
+              <option value={2}>Scheduled</option>
+              <option value={3}>Open</option>
+              <option value={4}>Ignored</option>
+            </Input>
           <div>
             <Button
               className='login-btn'
