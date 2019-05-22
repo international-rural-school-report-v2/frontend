@@ -9,9 +9,12 @@ export const GET_ORGS_SUCCESS = 'GET_ORGS_SUCCESS';
 export const GET_ORGS_FAILURE = 'GET_ORGS_FAILURE';
 export const FILTER_ISSUES = 'FILTER_ISSUES';
 
-export const baseURL='https://irsr-backend.herokuapp.com';
-export const testURL='https://irsr-be-dev.herokuapp.com';
+export const baseURL = 'https://irsr-backend.herokuapp.com';
+export const testURL = 'https://irsr-be-dev.herokuapp.com';
 let token = localStorage.getItem('token');
+
+// globals
+const { teacherAttendanceData } = require('../globals/DummyData.js')
 
 export const login = credentials => dispatch => {
   dispatch({ type: LOGIN_LOADING });
@@ -49,9 +52,9 @@ export const getOrgs = () => dispatch => {
   dispatch({ type: GETTING_ORGS });
   return axios
     .get(`${testURL}/public/orgs`)
-    .then(res =>  {
+    .then(res => {
       console.log(res.data);
-      dispatch({ type: GET_ORGS_SUCCESS, payload: res.data})
+      dispatch({ type: GET_ORGS_SUCCESS, payload: res.data })
     })
     .catch(err => {
       dispatch({ type: GET_ORGS_FAILURE, payload: err });
@@ -123,3 +126,18 @@ export const filterIssues = status_id => (
     payload: status_id
   }
 )
+
+export const GETTING_TEACERS_ATTENDANCE = 'GETTING_TEACERS_ATTENDANCE';
+export const GET_TEACERS_ATTENDANCE_SUCCESS = 'GET_TEACERS_ATTENDANCE_SUCCESS';
+export const GET_TEACERS_ATTENDANCE_FAILURE = 'GET_TEACERS_ATTENDANCE_FAILURE';
+
+export const getTeachersAttendance = () => dispatch => {
+  dispatch({ type: GETTING_TEACERS_ATTENDANCE });
+  Promise.resolve(teacherAttendanceData)
+    .then(data => {
+      dispatch({ type: GET_TEACERS_ATTENDANCE_SUCCESS, payload: data });
+    })
+    .catch(err => {
+      dispatch({ type: GET_TEACERS_ATTENDANCE_FAILURE, payload: err });
+    });
+}

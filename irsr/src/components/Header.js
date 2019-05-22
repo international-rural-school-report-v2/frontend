@@ -2,14 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 
 /***************************************************************************************************
- ********************************************** Styles *********************************************
+ ********************************************** Styles **********************************************
  **************************************************************************************************/
 const DivWrapper = styled.div`
+  display: flex;
+`;
+
+const DivSpacer = styled.div`
+  display: flex;
+  min-width: 100%;
+  height: 100px;
+`;
+
+const DivHeader = styled.div`
   display: flex;
   color: black;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid black;
+  top: 0;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  background-color: white;
 
   h1 {
     display: flex;
@@ -32,13 +47,14 @@ const DivWrapper = styled.div`
 const Header = props => {
   return (
     <DivWrapper>
-      <h1>International&nbsp;Rural&nbsp;School&nbsp;Report</h1>
-      <button onClick={() => {
+      <DivSpacer />
+      <DivHeader>
+        <h1>International&nbsp;Rural&nbsp;School&nbsp;Report</h1>
+        <button onClick={() => {
           window.localStorage.clear();
           props.history.push('/login');
-        }
-      }>
-          Logout</button>
+        }}>Logout</button>
+      </DivHeader>
     </DivWrapper>
   );
 }
