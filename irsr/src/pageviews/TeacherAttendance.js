@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import Table from '../components/Table.js';
+import DataTable from '../components/DataTable.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // globals
@@ -19,6 +19,14 @@ const DivWrapper = styled.div`
   flex-direction: column;
 `;
 
+const StickyDiv = styled.div`
+  /* display: flex;
+  border: 3px solid red;
+  top: 100px;
+  position: sticky;
+  z-index: 10; */
+`;
+
 /***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
@@ -26,14 +34,16 @@ const TeacherAttendance = props => {
   return (
     <DivWrapper>
       <h1>Teacher&nbsp;Attendance</h1>
-      <MuiThemeProvider>
-        <Table
-          header={[
-            'Name', 'Date', 'In', 'Out', 'TMM'
-          ]}
-          data={teacherAttendanceData}
-        />
-      </MuiThemeProvider>
+      <StickyDiv>
+        <MuiThemeProvider>
+          <DataTable
+            header={[
+              'Name', 'Date', 'In', 'Out', 'TMM'
+            ]}
+            data={teacherAttendanceData}
+          />
+        </MuiThemeProvider>
+      </StickyDiv>
     </DivWrapper>
   );
 }
