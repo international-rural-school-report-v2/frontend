@@ -13,10 +13,28 @@ import {
 } from 'reactstrap';
 
 import '../styles/nav.css';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions';
 
+/***************************************************************************************************
+ ********************************************** Styles **********************************************
+ **************************************************************************************************/
+const DivWrapper = styled.div`
+  display: flex;
+`;
+
+const DivSpacer = styled.div`
+
+  display: flex;
+  min-width: 170px;
+  height: 100%;
+`;
+
+/***************************************************************************************************
+ ********************************************* Component *******************************************
+ **************************************************************************************************/
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -35,28 +53,31 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <Navbar
-        className='irsr-nav'
-        color="faded" light
-        expand="md"
-      >
-        <NavbarToggler onClick={this.toggle} />
-        {/* <NavbarBrand href="/">IRSR</NavbarBrand> */}
+      <DivWrapper>
+        <DivSpacer />
+        <Navbar
+          className='irsr-nav'
+          color="faded" light
+          expand="md"
+        >
+          <NavbarToggler onClick={this.toggle} />
+          {/* <NavbarBrand href="/">IRSR</NavbarBrand> */}
 
-        <Collapse isOpen={this.state.isOpen} navbar className="nav-collapse" >
-          <Nav vertical className="ml-auto" navbar>
-            <NavItem>
-              <NavLink className="nav-link" activeClassName="active" to="/">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" activeClassName="active" to="/issues">Issues</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" activeClassName="active" to="/teacher-attendance">Teacher&nbsp;Attendance</NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
+          <Collapse isOpen={this.state.isOpen} navbar className="nav-collapse" >
+            <Nav vertical className="ml-auto" navbar>
+              <NavItem>
+                <NavLink className="nav-link" activeClassName="active" to="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" activeClassName="active" to="/issues">Issues</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" activeClassName="active" to="/teacher-attendance">Teacher&nbsp;Attendance</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </DivWrapper>
     );
   }
 }
