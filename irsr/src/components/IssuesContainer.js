@@ -11,6 +11,9 @@ import '../styles/issues-container.css';
 
 
 class IssuesContainer extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount() {
     this.props.getIssues(this.props.org_id);

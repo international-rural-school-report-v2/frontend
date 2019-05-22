@@ -2,7 +2,7 @@ import {
   LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE, 
   GET_ORGS_FAILURE, GETTING_ORGS, GET_ORGS_SUCCESS, 
   GETTING_ISSUES, GET_ISSUES_SUCCESS, GET_ISSUES_FAILURE,
-  ADD_ISSUE_SUCCESS, FILTER_ISSUES
+  ADD_ISSUE_SUCCESS, FILTER_ISSUES, DELETE_ISSUE_SUCCESS
 }  from '../actions';
 
 const initialState = {
@@ -64,6 +64,7 @@ export const reducer = (state = initialState, action) => {
         displayedIssues: action.payload
       }
     case GET_ISSUES_FAILURE:
+      console.log(action.payload);
       return {
         ...state,
         error: action.payload,
@@ -88,6 +89,12 @@ export const reducer = (state = initialState, action) => {
             return false;
           }
         })
+      }
+    case DELETE_ISSUE_SUCCESS: 
+      return {
+        ...state,
+        issues: action.payload,
+        displayedIssues: action.payload
       }
     default:
       return state

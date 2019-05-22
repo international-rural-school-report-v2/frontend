@@ -55,7 +55,10 @@ function App() {
              <Login {...props} />
               )}
             />
-            <PrivateRoute path='/issues' component={IssuesContainer} />
+            <PrivateRoute 
+              path='/issues'
+              component={IssuesContainer}
+            />
             <PrivateRoute exact path='/teacher-attendance' component={TeacherAttendance} />
           </DivPageView>
         </div>
