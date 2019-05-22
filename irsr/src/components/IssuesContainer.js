@@ -6,6 +6,9 @@ import IssuesList from './IssuesList'
 import AddIssueForm from './AddIssueForm';
 import { getIssues, login, register, filterIssues, deleteIssue } from '../actions';
 
+import { Container } from 'reactstrap';
+import '../styles/issues-container.css';
+
 
 class IssuesContainer extends React.Component {
 
@@ -24,9 +27,8 @@ class IssuesContainer extends React.Component {
   };
 
   render() {
-    console.log(this.props.displayedIssues)
     return (
-      <div>
+      <Container className='issues-container'>
         <Route
           exact
           path='/issues'
@@ -35,7 +37,6 @@ class IssuesContainer extends React.Component {
             />
           )}
         />
-        <p>issues container</p>
         <Route
           exact
           path='/issues'
@@ -62,7 +63,7 @@ class IssuesContainer extends React.Component {
             <Login />
           )}
         /> */}
-      </div>
+      </Container>
       );
   }
 

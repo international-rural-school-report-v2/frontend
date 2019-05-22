@@ -10,21 +10,21 @@ const IssuesList = props => {
   }
 
   return (
-    <div>
+    <div className='issues-container-with-buttons'>
       <SortIssuesButtons
           filterIssues={props.filterIssues} 
         />
+      <div className='issues-list'>
       {props.issues.map( (issue, index) => {
         return (
-          <div key={index} className="issue-box">
+          <Card key={index} className='issues-list-card'>
             <NavLink to={`/issues/${issue.id}`}>
-              <Card>
               <IssueCard issue={issue}/>
-              </Card>
             </NavLink>
-          </div>
+          </Card>
         )
       })}
+      </div>
 
     </div>
 

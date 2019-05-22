@@ -65,7 +65,7 @@ class RegisterForm extends React.Component {
         <Form onSubmit={ev => this.submitHandler(ev)}>
           <h2>Register</h2>
           <FormGroup>
-            <Label for="username-input">Username:</Label>
+            <Label for="username-input-register">Username:</Label>
             <Input
               type='text'
               name='username'
@@ -112,23 +112,25 @@ class RegisterForm extends React.Component {
               onChange={this.changeHandler}
             />
           </FormGroup>
-          <FormGroup>
+          <FormGroup check>
             <Label check>
               <Input 
                 type="radio" 
                 name="role_id"
                 value={1}
                 onClick={this.changeHandler}
-              />{''}
-              School Administrator
+              />{' '}
+              School Admin
             </Label>
+          </FormGroup>
+          <FormGroup check>
             <Label check>
               <Input 
               type="radio" 
               name="role_id"
               value={2}
               onClick={this.changeHandler}
-              />{''}
+              />{' '}
               Board Member
             </Label>
           </FormGroup>
@@ -139,10 +141,7 @@ class RegisterForm extends React.Component {
               type='submit'
               placeholder='Register'
               value='Register'
-            >Register </Button>
-            {/* <p failedLogin={this.state.invalidLogin.toString()}>
-              Invalid Username/Password
-            </p> */}
+            >Register</Button>
           </FormGroup>
         </Form>
     );

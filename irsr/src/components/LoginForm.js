@@ -42,8 +42,6 @@ class LoginForm extends React.Component {
               id="username-input-login"
               onChange={this.changeHandler}
             />
-          </FormGroup>
-          <FormGroup>
             <Label for='password-input-login'>Password:</Label>
             <Input
               id='password-input-login'
