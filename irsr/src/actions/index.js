@@ -108,7 +108,7 @@ export const deleteIssue = id => dispatch => {
     .delete(`${testURL}/issues/${id}`, id)
     .then(res => {
       console.log(res.data);
-      dispatch({ type: GET_ISSUES_SUCCESS })
+      dispatch({ type: GET_ISSUES_SUCCESS, payload: res.data })
     })
     .catch(err => {
       dispatch({ type: GET_ISSUES_FAILURE, payload: err })

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Issue from './Issue';
 import IssuesList from './IssuesList'
 import AddIssueForm from './AddIssueForm';
-import { getIssues, login, register, filterIssues } from '../actions';
+import { getIssues, login, register, filterIssues, deleteIssue } from '../actions';
 
 
 class IssuesContainer extends React.Component {
@@ -49,7 +49,9 @@ class IssuesContainer extends React.Component {
         <Route
           path='/issues/:id'
           render={props => (
-            <Issue {...props} issues={this.props.issues}
+            <Issue {...props} 
+              issues={this.props.issues}
+              deleteIssue={this.props.deleteIssue}
             />
           )}
         />
@@ -75,5 +77,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getIssues, login, register, filterIssues }
+  { getIssues, login, register, filterIssues, deleteIssue }
 )(IssuesContainer);
