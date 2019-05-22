@@ -45,7 +45,12 @@ function App() {
     <Router>
       <div className="App">
         <GlobalStyle />
-        <Header />
+        <Route 
+          path='/' 
+          render={props => (
+             <Header {...props} />
+          )}
+          />
         <div className='main-page'>
           <NavBar />
           <DivPageView>

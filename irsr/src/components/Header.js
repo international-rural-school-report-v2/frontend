@@ -33,7 +33,12 @@ const Header = props => {
   return (
     <DivWrapper>
       <h1>International&nbsp;Rural&nbsp;School&nbsp;Report</h1>
-      <button onClick={() => window.localStorage.clear()}>Logout</button>
+      <button onClick={() => {
+          window.localStorage.clear();
+          props.history.push('/login');
+        }
+      }>
+          Logout</button>
     </DivWrapper>
   );
 }
