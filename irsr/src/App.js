@@ -45,30 +45,30 @@ function App() {
     <Router>
       <div className="App">
         <GlobalStyle />
-        <Route 
-          path='/' 
+        <Route
+          path='/'
           render={props => (
-             <Header {...props} />
+            <Header {...props} />
           )}
-          />
+        />
         <div className='main-page'>
           <NavBar />
           <DivPageView>
-            <Route 
-              path='/login' 
+            <Route
+              path='/login'
               render={props => (
-             <Login {...props} />
+                <Login {...props} />
               )}
             />
-            <PrivateRoute 
+            <PrivateRoute
               path='/issues'
               component={IssuesContainer}
             />
             <PrivateRoute exact path='/teacher-attendance' component={TeacherAttendance} />
           </DivPageView>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </Router>
   );
 }
