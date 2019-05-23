@@ -29,8 +29,8 @@
 }
 
 .add-issue-form {
-  width: 50%;
-  margin-top: 25px;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .single-issue-card {
