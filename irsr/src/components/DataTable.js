@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 import {
   Table,
   TableBody,
@@ -8,6 +9,8 @@ import {
   TableRow,
   TableRowColumn
 } from 'material-ui/Table';
+
+const date_column_num = 1;
 
 /***************************************************************************************************
  ********************************************** Styles **********************************************
@@ -26,7 +29,7 @@ const DataTable = ({ header, data }) => {
         <TableRow>
           {
             header.map((columnName, i) =>
-              <TableHeaderColumn key={`thc-${i}`}>{columnName}</TableHeaderColumn>
+              <TableHeaderColumn key={`thc-${i}`}>{(i !== header.length - 1) ? columnName.charAt(0).toUpperCase() + columnName.slice(1) : columnName.toUpperCase()}</TableHeaderColumn>
             )
           }
         </TableRow>
@@ -37,7 +40,7 @@ const DataTable = ({ header, data }) => {
             <TableRow style={(i % 2 == 0) && { backgroundColor: 'lightgray' }} key={`tr-${i}`}>
               {
                 header.map((columnName, j) =>
-                  <TableRowColumn key={`trc-${j}`}>{teacher[columnName]}</TableRowColumn>
+                  <TableRowColumn key={`trc-${j}`}>{(j === date_column_num) ? moment(new Date(Number(teacher[columnName]))).format('l') : teacher[columnName]}</TableRowColumn>
                 )
               }
             </TableRow>

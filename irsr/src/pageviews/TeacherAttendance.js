@@ -37,7 +37,7 @@ const TeacherAttendance = props => {
         <MuiThemeProvider>
           <DataTable
             header={[
-              'Name', 'Date', 'In', 'Out', 'TMM'
+              'name', 'date', 'in', 'out', 'tmm'
             ]}
             data={props.teachersAttendance}
           />

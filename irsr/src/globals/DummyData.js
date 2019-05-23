@@ -1,283 +1,283 @@
 const teacherAttendanceData = [
   {
-    "Name": "Maria Martinez",
-    "Date": "11/11/20",
-    "In": 11,
-    "Out": 13,
-    "TMM": 72
+    "name": "Maria Martinez",
+    "date": "11/11/20",
+    "in": 11,
+    "out": 13,
+    "tmm": 72
   },
   {
-    "Name": "Jane Doe",
-    "Date": "11/11/20",
-    "In": 10,
-    "Out": 11,
-    "TMM": 56
+    "name": "Jane Doe",
+    "date": "11/11/20",
+    "in": 10,
+    "out": 11,
+    "tmm": 56
   },
   {
-    "Name": "John Smith",
-    "Date": "11/11/20",
-    "In": 9,
-    "Out": 10,
-    "TMM": 44
+    "name": "John Smith",
+    "date": "11/11/20",
+    "in": 9,
+    "out": 10,
+    "tmm": 44
   },
   {
-    "Name": "Joe Chan",
-    "Date": "11/11/20",
-    "In": 8,
-    "Out": 9,
-    "TMM": 43
+    "name": "Joe Chan",
+    "date": "11/11/20",
+    "in": 8,
+    "out": 9,
+    "tmm": 43
   },
   {
-    "Name": "Mike Moo",
-    "Date": "11/11/20",
-    "In": 7,
-    "Out": 10,
-    "TMM": 41
+    "name": "Mike Moo",
+    "date": "11/11/20",
+    "in": 7,
+    "out": 10,
+    "tmm": 41
   },
   {
-    "Name": "Maria Martinez",
-    "Date": "11/11/20",
-    "In": 11,
-    "Out": 13,
-    "TMM": 72
+    "name": "Maria Martinez",
+    "date": "11/11/20",
+    "in": 11,
+    "out": 13,
+    "tmm": 72
   },
   {
-    "Name": "Jane Doe",
-    "Date": "11/11/20",
-    "In": 10,
-    "Out": 11,
-    "TMM": 56
+    "name": "Jane Doe",
+    "date": "11/11/20",
+    "in": 10,
+    "out": 11,
+    "tmm": 56
   },
   {
-    "Name": "John Smith",
-    "Date": "11/11/20",
-    "In": 9,
-    "Out": 10,
-    "TMM": 44
+    "name": "John Smith",
+    "date": "11/11/20",
+    "in": 9,
+    "out": 10,
+    "tmm": 44
   },
   {
-    "Name": "Joe Chan",
-    "Date": "11/11/20",
-    "In": 8,
-    "Out": 9,
-    "TMM": 43
+    "name": "Joe Chan",
+    "date": "11/11/20",
+    "in": 8,
+    "out": 9,
+    "tmm": 43
   },
   {
-    "Name": "Mike Moo",
-    "Date": "11/11/20",
-    "In": 7,
-    "Out": 10,
-    "TMM": 41
+    "name": "Mike Moo",
+    "date": "11/11/20",
+    "in": 7,
+    "out": 10,
+    "tmm": 41
   },
   {
-    "Name": "Maria Martinez",
-    "Date": "11/11/20",
-    "In": 11,
-    "Out": 13,
-    "TMM": 72
+    "name": "Maria Martinez",
+    "date": "11/11/20",
+    "in": 11,
+    "out": 13,
+    "tmm": 72
   },
   {
-    "Name": "Jane Doe",
-    "Date": "11/11/20",
-    "In": 10,
-    "Out": 11,
-    "TMM": 56
+    "name": "Jane Doe",
+    "date": "11/11/20",
+    "in": 10,
+    "out": 11,
+    "tmm": 56
   },
   {
-    "Name": "John Smith",
-    "Date": "11/11/20",
-    "In": 9,
-    "Out": 10,
-    "TMM": 44
+    "name": "John Smith",
+    "date": "11/11/20",
+    "in": 9,
+    "out": 10,
+    "tmm": 44
   },
   {
-    "Name": "Joe Chan",
-    "Date": "11/11/20",
-    "In": 8,
-    "Out": 9,
-    "TMM": 43
+    "name": "Joe Chan",
+    "date": "11/11/20",
+    "in": 8,
+    "out": 9,
+    "tmm": 43
   },
   {
-    "Name": "Mike Moo",
-    "Date": "11/11/20",
-    "In": 7,
-    "Out": 10,
-    "TMM": 41
+    "name": "Mike Moo",
+    "date": "11/11/20",
+    "in": 7,
+    "out": 10,
+    "tmm": 41
   },
   {
-    "Name": "Maria Martinez",
-    "Date": "11/11/20",
-    "In": 11,
-    "Out": 13,
-    "TMM": 72
+    "name": "Maria Martinez",
+    "date": "11/11/20",
+    "in": 11,
+    "out": 13,
+    "tmm": 72
   },
   {
-    "Name": "Jane Doe",
-    "Date": "11/11/20",
-    "In": 10,
-    "Out": 11,
-    "TMM": 56
+    "name": "Jane Doe",
+    "date": "11/11/20",
+    "in": 10,
+    "out": 11,
+    "tmm": 56
   },
   {
-    "Name": "John Smith",
-    "Date": "11/11/20",
-    "In": 9,
-    "Out": 10,
-    "TMM": 44
+    "name": "John Smith",
+    "date": "11/11/20",
+    "in": 9,
+    "out": 10,
+    "tmm": 44
   },
   {
-    "Name": "Joe Chan",
-    "Date": "11/11/20",
-    "In": 8,
-    "Out": 9,
-    "TMM": 43
+    "name": "Joe Chan",
+    "date": "11/11/20",
+    "in": 8,
+    "out": 9,
+    "tmm": 43
   },
   {
-    "Name": "Mike Moo",
-    "Date": "11/11/20",
-    "In": 7,
-    "Out": 10,
-    "TMM": 41
+    "name": "Mike Moo",
+    "date": "11/11/20",
+    "in": 7,
+    "out": 10,
+    "tmm": 41
   },
   {
-    "Name": "Maria Martinez",
-    "Date": "11/11/20",
-    "In": 11,
-    "Out": 13,
-    "TMM": 72
+    "name": "Maria Martinez",
+    "date": "11/11/20",
+    "in": 11,
+    "out": 13,
+    "tmm": 72
   },
   {
-    "Name": "Jane Doe",
-    "Date": "11/11/20",
-    "In": 10,
-    "Out": 11,
-    "TMM": 56
+    "name": "Jane Doe",
+    "date": "11/11/20",
+    "in": 10,
+    "out": 11,
+    "tmm": 56
   },
   {
-    "Name": "John Smith",
-    "Date": "11/11/20",
-    "In": 9,
-    "Out": 10,
-    "TMM": 44
+    "name": "John Smith",
+    "date": "11/11/20",
+    "in": 9,
+    "out": 10,
+    "tmm": 44
   },
   {
-    "Name": "Joe Chan",
-    "Date": "11/11/20",
-    "In": 8,
-    "Out": 9,
-    "TMM": 43
+    "name": "Joe Chan",
+    "date": "11/11/20",
+    "in": 8,
+    "out": 9,
+    "tmm": 43
   },
   {
-    "Name": "Mike Moo",
-    "Date": "11/11/20",
-    "In": 7,
-    "Out": 10,
-    "TMM": 41
+    "name": "Mike Moo",
+    "date": "11/11/20",
+    "in": 7,
+    "out": 10,
+    "tmm": 41
   },
   {
-    "Name": "Maria Martinez",
-    "Date": "11/11/20",
-    "In": 11,
-    "Out": 13,
-    "TMM": 72
+    "name": "Maria Martinez",
+    "date": "11/11/20",
+    "in": 11,
+    "out": 13,
+    "tmm": 72
   },
   {
-    "Name": "Jane Doe",
-    "Date": "11/11/20",
-    "In": 10,
-    "Out": 11,
-    "TMM": 56
+    "name": "Jane Doe",
+    "date": "11/11/20",
+    "in": 10,
+    "out": 11,
+    "tmm": 56
   },
   {
-    "Name": "John Smith",
-    "Date": "11/11/20",
-    "In": 9,
-    "Out": 10,
-    "TMM": 44
+    "name": "John Smith",
+    "date": "11/11/20",
+    "in": 9,
+    "out": 10,
+    "tmm": 44
   },
   {
-    "Name": "Joe Chan",
-    "Date": "11/11/20",
-    "In": 8,
-    "Out": 9,
-    "TMM": 43
+    "name": "Joe Chan",
+    "date": "11/11/20",
+    "in": 8,
+    "out": 9,
+    "tmm": 43
   },
   {
-    "Name": "Mike Moo",
-    "Date": "11/11/20",
-    "In": 7,
-    "Out": 10,
-    "TMM": 41
+    "name": "Mike Moo",
+    "date": "11/11/20",
+    "in": 7,
+    "out": 10,
+    "tmm": 41
   },
   {
-    "Name": "Maria Martinez",
-    "Date": "11/11/20",
-    "In": 11,
-    "Out": 13,
-    "TMM": 72
+    "name": "Maria Martinez",
+    "date": "11/11/20",
+    "in": 11,
+    "out": 13,
+    "tmm": 72
   },
   {
-    "Name": "Jane Doe",
-    "Date": "11/11/20",
-    "In": 10,
-    "Out": 11,
-    "TMM": 56
+    "name": "Jane Doe",
+    "date": "11/11/20",
+    "in": 10,
+    "out": 11,
+    "tmm": 56
   },
   {
-    "Name": "John Smith",
-    "Date": "11/11/20",
-    "In": 9,
-    "Out": 10,
-    "TMM": 44
+    "name": "John Smith",
+    "date": "11/11/20",
+    "in": 9,
+    "out": 10,
+    "tmm": 44
   },
   {
-    "Name": "Joe Chan",
-    "Date": "11/11/20",
-    "In": 8,
-    "Out": 9,
-    "TMM": 43
+    "name": "Joe Chan",
+    "date": "11/11/20",
+    "in": 8,
+    "out": 9,
+    "tmm": 43
   },
   {
-    "Name": "Mike Moo",
-    "Date": "11/11/20",
-    "In": 7,
-    "Out": 10,
-    "TMM": 41
+    "name": "Mike Moo",
+    "date": "11/11/20",
+    "in": 7,
+    "out": 10,
+    "tmm": 41
   },
   {
-    "Name": "Maria Martinez",
-    "Date": "11/11/20",
-    "In": 11,
-    "Out": 13,
-    "TMM": 72
+    "name": "Maria Martinez",
+    "date": "11/11/20",
+    "in": 11,
+    "out": 13,
+    "tmm": 72
   },
   {
-    "Name": "Jane Doe",
-    "Date": "11/11/20",
-    "In": 10,
-    "Out": 11,
-    "TMM": 56
+    "name": "Jane Doe",
+    "date": "11/11/20",
+    "in": 10,
+    "out": 11,
+    "tmm": 56
   },
   {
-    "Name": "John Smith",
-    "Date": "11/11/20",
-    "In": 9,
-    "Out": 10,
-    "TMM": 44
+    "name": "John Smith",
+    "date": "11/11/20",
+    "in": 9,
+    "out": 10,
+    "tmm": 44
   },
   {
-    "Name": "Joe Chan",
-    "Date": "11/11/20",
-    "In": 8,
-    "Out": 9,
-    "TMM": 43
+    "name": "Joe Chan",
+    "date": "11/11/20",
+    "in": 8,
+    "out": 9,
+    "tmm": 43
   },
   {
-    "Name": "Mike Moo",
-    "Date": "11/11/20",
-    "In": 7,
-    "Out": 10,
-    "TMM": 41
+    "name": "Mike Moo",
+    "date": "11/11/20",
+    "in": 7,
+    "out": 10,
+    "tmm": 41
   },
 ]
 
