@@ -7,7 +7,7 @@ const IssueCard = props => {
   let statusID = '';
   switch(props.issue.status_id){
     case 1:
-      statusID = 'Done';
+      statusID = 'Done (archived)';
       break;
     case 2: 
       statusID = 'Scheduled';
@@ -16,7 +16,7 @@ const IssueCard = props => {
       statusID = 'Open';
       break;
     case 4:
-      statusID = 'Ignored';
+      statusID = 'Ignored (archived)';
       break;
     default: 
       statusID = 'Open';

@@ -19,6 +19,15 @@ const Issue = props => {
     props.history.push('/issues');
   }
 
+  if(issue.status_id === 1 || issue.status_id === 4 ) {
+    return (
+      <Card className='single-issue-card'>
+        <IssueCard issue={issue} />
+        <UpdateIssueForm issueId={issue.id} />
+      </Card>
+    )
+  }
+
   return (
     <Card className='single-issue-card'>
       <IssueCard issue={issue} />
