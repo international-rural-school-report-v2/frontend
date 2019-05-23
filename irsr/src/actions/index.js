@@ -11,6 +11,7 @@ export const FILTER_ISSUES = 'FILTER_ISSUES';
 
 export const baseURL = 'https://irsr-backend.herokuapp.com';
 export const testURL = 'https://irsr-be-dev.herokuapp.com';
+export const local_testURL = 'http://localhost:4242';
 let token = localStorage.getItem('token');
 
 // globals
@@ -133,11 +134,20 @@ export const GET_TEACERS_ATTENDANCE_FAILURE = 'GET_TEACERS_ATTENDANCE_FAILURE';
 
 export const getTeachersAttendance = () => dispatch => {
   dispatch({ type: GETTING_TEACERS_ATTENDANCE });
-  Promise.resolve(teacherAttendanceData)
-    .then(data => {
-      dispatch({ type: GET_TEACERS_ATTENDANCE_SUCCESS, payload: data });
+  // Promise.resolve(teacherAttendanceData)
+  //   .then(data => {
+  //     dispatch({ type: GET_TEACERS_ATTENDANCE_SUCCESS, payload: data });
+  //   })
+  //   .catch(err => {
+  //     dispatch({ type: GET_TEACERS_ATTENDANCE_FAILURE, payload: err });
+  //   });
+  axiosAuth()
+    .get(`${testURL}/teachers-attendance`)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: GET_TEACERS_ATTENDANCE_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: GET_TEACERS_ATTENDANCE_FAILURE, payload: err });
-    });
+    })
 }
