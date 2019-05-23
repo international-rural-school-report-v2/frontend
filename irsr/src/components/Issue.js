@@ -1,6 +1,6 @@
 import React from 'react';
 import UpdateIssueForm from './UpdateIssueForm';
-import { Card, Button, FormGroup } from 'reactstrap';
+import { Card } from 'reactstrap';
 import IssueCard from './IssueCard';
 import DeleteIssueModal from './DeleteIssueModal';
 import '../styles/issues-container.css';

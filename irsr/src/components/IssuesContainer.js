@@ -3,9 +3,8 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Issue from './Issue';
 import IssuesList from './IssuesList'
-import AddIssueForm from './AddIssueForm';
 import { getIssues, login, register, filterIssues, deleteIssue } from '../actions';
-import { Container, Button, ModalBody, ModalHeader } from 'reactstrap';
+import { Container } from 'reactstrap';
 import '../styles/issues-container.css';
 
 
