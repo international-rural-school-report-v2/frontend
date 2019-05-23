@@ -15,7 +15,7 @@ export const local_testURL = 'http://localhost:4242';
 // let token = localStorage.getItem('token');
 
 // globals
-const { teacherAttendanceData } = require('../globals/DummyData.js')
+// const { teacherAttendanceData } = require('../globals/DummyData.js')
 
 export const login = credentials => dispatch => {
   dispatch({ type: LOGIN_LOADING });
