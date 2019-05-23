@@ -12,7 +12,7 @@ export const FILTER_ISSUES = 'FILTER_ISSUES';
 export const baseURL = 'https://irsr-backend.herokuapp.com';
 export const testURL = 'https://irsr-be-dev.herokuapp.com';
 export const local_testURL = 'http://localhost:4242';
-let token = localStorage.getItem('token');
+// let token = localStorage.getItem('token');
 
 // globals
 const { teacherAttendanceData } = require('../globals/DummyData.js')
@@ -25,7 +25,6 @@ export const login = credentials => dispatch => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user_id', res.data.user);
       localStorage.setItem('role', JSON.stringify(res.data.org_roles));
-      console.log(res.data);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -41,7 +40,6 @@ export const register = credentials => dispatch => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user_id', res.data.user);
       localStorage.setItem('role', JSON.stringify(res.data.org_roles));
-      console.log(res.data);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -54,7 +52,6 @@ export const getOrgs = () => dispatch => {
   return axios
     .get(`${testURL}/public/orgs`)
     .then(res => {
-      console.log(res.data);
       dispatch({ type: GET_ORGS_SUCCESS, payload: res.data })
     })
     .catch(err => {
@@ -72,7 +69,6 @@ export const getIssues = () => dispatch => {
   axiosAuth()
     .get(`${testURL}/issues`)
     .then(res => {
-      console.log(res.data);
       dispatch({ type: GET_ISSUES_SUCCESS, payload: res.data })
     })
     .catch(err => {
@@ -85,7 +81,6 @@ export const addIssue = (issue) => dispatch => {
   axiosAuth()
     .post(`${testURL}/issues`, issue)
     .then(res => {
-      console.log(res.data);
       dispatch({ type: ADD_ISSUE_SUCCESS, payload: res.data })
     })
     .catch(err => {
@@ -98,7 +93,6 @@ export const updateIssue = (issue, id) => dispatch => {
   axiosAuth()
     .put(`${testURL}/issues/${id}`, issue)
     .then(res => {
-      console.log(res.data);
       dispatch({ type: ADD_ISSUE_SUCCESS, payload: res.data })
     })
     .catch(err => {
@@ -113,7 +107,6 @@ export const deleteIssue = id => dispatch => {
   axiosAuth()
     .delete(`${testURL}/issues/${id}`, id)
     .then(res => {
-      console.log(res);
       dispatch({ type: DELETE_ISSUE_SUCCESS, payload: res.data })
     })
     .catch(err => {

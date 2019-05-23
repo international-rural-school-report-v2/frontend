@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { login, getOrgs, register } from '../actions';
 
@@ -21,7 +21,6 @@ class RegisterForm extends React.Component {
   }
 
   changeHandler = ({ target: { name, value } }) => {
-    console.log(value);
     this.setState({ [name]: value });
   };
 
@@ -41,19 +40,9 @@ class RegisterForm extends React.Component {
       email: this.state.email
     }
 
-    console.log(accountInfo);
-
     Promise.resolve(this.props.register(accountInfo)).then(() => {
       this.props.history.push('/issues')
     })
-    // .then(() => {
-      // if (this.props.isLoggedIn) {
-      //   this.props.closeLoginModal(ev);
-      // } else {
-      // console.log('this.props.isLoggedIn() = ', this.props.isLoggedIn);
-      // this.setState({ invalidLogin: true });
-      // }
-    // });
   };
 
   render() {

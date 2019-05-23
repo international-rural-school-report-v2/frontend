@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addIssue, updateIssue } from '../actions';
 import '../styles/issues-container.css';
@@ -23,14 +23,6 @@ class UpdateIssueForm extends React.Component {
       status_id: this.state.status_id
     };
     Promise.resolve(this.props.updateIssue(newIssue, this.props.issueId))
-    // .then(() => {
-      // if (this.props.isLoggedIn) {
-      //   this.props.closeLoginModal(ev);
-      // } else {
-    //   console.log('this.props.isLoggedIn() = ', this.props.isLoggedIn);
-    //   this.setState({ invalidLogin: true });
-    //   // }
-    // });
   };
 
 

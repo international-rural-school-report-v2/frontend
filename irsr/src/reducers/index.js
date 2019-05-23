@@ -1,6 +1,6 @@
 import {
   LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE,
-  GET_ORGS_FAILURE, GETTING_ORGS, GET_ORGS_SUCCESS,
+  GET_ORGS_SUCCESS,
   GETTING_ISSUES, GET_ISSUES_SUCCESS, GET_ISSUES_FAILURE,
   ADD_ISSUE_SUCCESS, FILTER_ISSUES, DELETE_ISSUE_SUCCESS,
   GETTING_TEACERS_ATTENDANCE, GET_TEACERS_ATTENDANCE_SUCCESS,
@@ -69,7 +69,6 @@ export const reducer = (state = initialState, action) => {
         displayedIssues: action.payload
       }
     case GET_ISSUES_FAILURE:
-      console.log(action.payload);
       return {
         ...state,
         error: action.payload,
@@ -102,7 +101,6 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         displayedIssues: state.issues.filter(issue => {
-          console.log(action.payload);
           if (action.payload === 0) {
             return true;
           } else if (issue.status_id === action.payload) {

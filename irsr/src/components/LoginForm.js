@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { login } from '../actions';
 
@@ -26,12 +26,10 @@ class LoginForm extends React.Component {
     this.props.login(credentials).then(() => {
       this.props.history.push('/issues')
     });
-    // Promise.resolve()
   };
   
   render() {
     return (
-      // <div onClick={ev => ev.stopPropagation()}>
         <Form onSubmit={ev => this.submitHandler(ev)}>
           <h2>Login</h2>
           <FormGroup>
@@ -63,7 +61,6 @@ class LoginForm extends React.Component {
             </p> */}
           </FormGroup>
         </Form>
-      // </div>
     );
   }
 }
