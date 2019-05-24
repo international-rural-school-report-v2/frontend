@@ -26,7 +26,9 @@ class AddIssueForm extends React.Component {
       'status_id': this.state.status_id
     };
     
-    this.props.addIssue(newIssue)
+    Promise.resolve(this.props.addIssue(newIssue)).then(() => {
+      this.props.toggle();
+    })
   };
 
 

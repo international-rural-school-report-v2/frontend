@@ -18,10 +18,14 @@
 
 .login-page {
   margin-top: 50px;
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.login-page form {
+  margin-right: 100px;
 }
 
 .login-btn {
@@ -29,8 +33,8 @@
 }
 
 .add-issue-form {
-  width: 50%;
-  margin-top: 25px;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .single-issue-card {

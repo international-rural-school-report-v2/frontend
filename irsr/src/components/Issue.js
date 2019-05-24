@@ -1,7 +1,8 @@
 import React from 'react';
 import UpdateIssueForm from './UpdateIssueForm';
-import { Card, Button, FormGroup } from 'reactstrap';
+import { Card } from 'reactstrap';
 import IssueCard from './IssueCard';
+import DeleteIssueModal from './DeleteIssueModal';
 import '../styles/issues-container.css';
 
 const Issue = props => {
@@ -12,10 +13,26 @@ const Issue = props => {
     return <h2>Issue not found!</h2>
   }
 
+  const deleteIssue = ev => {
+    ev.preventDefault();
+    props.deleteIssue(issue.id);
+    props.history.push('/issues');
+  }
+
+  if(issue.status_id === 1 || issue.status_id === 4 ) {
+    return (
+      <Card className='single-issue-card'>
+        <IssueCard issue={issue} />
+        <UpdateIssueForm issueId={issue.id} />
+      </Card>
+    )
+  }
+
   return (
     <Card className='single-issue-card'>
       <IssueCard issue={issue} />
-      <FormGroup>
+
+      {/* <FormGroup>
         <Button 
           color='danger' 
           className='login-btn'
@@ -29,7 +46,8 @@ const Issue = props => {
           }}>
           Delete Issue
         </Button>
-      </FormGroup>
+      </FormGroup> */}
+      <DeleteIssueModal deleteIssue={deleteIssue} />
       <UpdateIssueForm issueId={issue.id} />
     </Card>
   );

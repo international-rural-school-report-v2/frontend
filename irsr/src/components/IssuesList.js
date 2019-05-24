@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import IssueCard from './IssueCard';
 import SortIssuesButtons from './SortIssuesButtons';
 import { Card } from 'reactstrap';
+import AddIssueModal from './AddIssueModal';
 
 const IssuesList = props => {
 
@@ -12,6 +13,7 @@ const IssuesList = props => {
 
   return (
     <div className='issues-container-with-buttons'>
+      <AddIssueModal />
       <SortIssuesButtons
           filterIssues={props.filterIssues} 
         />

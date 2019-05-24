@@ -3,9 +3,7 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Issue from './Issue';
 import IssuesList from './IssuesList'
-import AddIssueForm from './AddIssueForm';
 import { getIssues, login, register, filterIssues, deleteIssue } from '../actions';
-
 import { Container } from 'reactstrap';
 import '../styles/issues-container.css';
 
@@ -33,14 +31,6 @@ class IssuesContainer extends React.Component {
           exact
           path='/issues'
           render={props => (
-            <AddIssueForm {...props} issues={this.props.issues}
-            />
-          )}
-        />
-        <Route
-          exact
-          path='/issues'
-          render={props => (
             <IssuesList {...props} 
             filterIssues={this.props.filterIssues}
             issues={this.props.displayedIssues}
@@ -48,6 +38,7 @@ class IssuesContainer extends React.Component {
           )}
         />
         <Route
+          exact
           path='/issues/:id'
           render={props => (
             <Issue {...props} 
