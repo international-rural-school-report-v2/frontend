@@ -6,13 +6,15 @@ import styled from 'styled-components';
  **************************************************************************************************/
 const DivWrapper = styled.div`
   display: flex;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(128, 128, 128);
   color: white;
   min-width: 100%;
   min-height: 100%;
   justify-content: center;
   flex-direction: column;
   flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 
 
   p {

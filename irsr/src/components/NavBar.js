@@ -21,7 +21,6 @@ const DivWrapper = styled.div`
 `;
 
 const DivSpacer = styled.div`
-
   display: flex;
   min-width: 170px;
   height: 100%;
