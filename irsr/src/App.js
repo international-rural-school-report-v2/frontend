@@ -4,11 +4,14 @@ import './App.css';
 import Header from './components/Header.js';
 import IssuesContainer from './components/IssuesContainer';
 import Footer from './components/Footer.js';
-import TeacherAttendance from './pageviews/TeacherAttendance.js'
+import TeacherAttendance from './pageviews/TeacherAttendance.js';
+import LandingPage from './pageviews/LandingPage.js';
+import TeamPage from './pageviews/TeamPage.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import PrivateRoute from './PrivateRoute';
+import { connect } from 'react-redux';
 
 /***************************************************************************************************
  ********************************************** Styles **********************************************
@@ -40,19 +43,21 @@ const DivPageView = styled.div`
 /***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
-function App() {
+const App = props => {
   return (
     <Router>
       <div className="App">
         <GlobalStyle />
-        <Route
+        {props.isLoggedIn && <Route
           path='/'
           render={props => (
             <Header {...props} />
           )}
-        />
+        />}
+        {!props.isLoggedIn && <Route exact path='/' component={LandingPage} />}
+        {!props.isLoggedIn && <Route exact path='/team' component={TeamPage} />}
         <div className='main-page'>
-          <NavBar />
+          {props.isLoggedIn && <NavBar />}
           <DivPageView>
             <Route
               path='/login'
@@ -73,4 +78,13 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.isLoggedIn
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(App);

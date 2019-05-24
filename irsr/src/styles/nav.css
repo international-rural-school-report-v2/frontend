@@ -1,5 +1,6 @@
 .irsr-nav {
   display: flex;
+  margin: 0;
   align-items: flex-start;
   width: 10%;
   max-width: 170px;
@@ -9,4 +10,5 @@
   top: 100px;
   position: fixed;
   z-index: 2;
+  transition: none;
 }
