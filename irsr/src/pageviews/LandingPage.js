@@ -53,7 +53,7 @@ const LandingPage = props => {
             An efficient, user-friendly and accessible resource for schools to keep
             track of issues and equipment.
       </p>
-          <a href={frontEnd}>GET STARTED</a>
+          <NavLink to={`${frontEnd}login`}>GET STARTED</NavLink>
         </div>
       </div>
       <section id="about">
@@ -70,7 +70,7 @@ const LandingPage = props => {
               comments and log detailed information, we make it easy to keep track
               of all your equipment and see a big picture.
         </p>
-            <a href={frontEnd} class="button">SIGN UP!</a>
+            <NavLink to={`${frontEnd}login`} class="button">SIGN UP!</NavLink>
           </div>
         </div>
         <div class="section-img">
@@ -137,7 +137,7 @@ const LandingPage = props => {
               applications that help our children and our communities? We hope that
               IRSR does just that!
         </p>
-            <a href={frontEndTeam} class="button">Learn More</a>
+            <NavLink to={frontEndTeam} class="button">Learn More</NavLink>
           </div>
         </div>
         <div class="section-img">
