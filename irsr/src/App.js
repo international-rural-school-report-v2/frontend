@@ -4,7 +4,8 @@ import './App.css';
 import Header from './components/Header.js';
 import IssuesContainer from './components/IssuesContainer';
 import Footer from './components/Footer.js';
-import TeacherAttendance from './pageviews/TeacherAttendance.js'
+import TeacherAttendance from './pageviews/TeacherAttendance.js';
+import LandingPage from './pageviews/LandingPage.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
@@ -45,14 +46,15 @@ function App() {
     <Router>
       <div className="App">
         <GlobalStyle />
-        <Route
+        {(localStorage.getItem('token')) && <Route
           path='/'
           render={props => (
             <Header {...props} />
           )}
-        />
+        />}
+        {!(localStorage.getItem('token')) && <Route exact path='/' component={LandingPage} />}
         <div className='main-page'>
-          <NavBar />
+          {(localStorage.getItem('token')) && <NavBar />}
           <DivPageView>
             <Route
               path='/login'
