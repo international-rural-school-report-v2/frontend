@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { logout } from '../actions/index.js';
+
 
 /***************************************************************************************************
  ********************************************** Styles **********************************************
@@ -45,18 +48,29 @@ const DivHeader = styled.div`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const Header = props => {
+  console.log(props);
+  const logoutHandler = ev => {
+    props.logout(props.history);
+  }
+
   return (
     <DivWrapper>
       <DivSpacer />
       <DivHeader>
         <h1>International&nbsp;Rural&nbsp;School&nbsp;Report</h1>
-        <button onClick={() => {
-          window.localStorage.clear();
-          props.history.push('/login');
-        }}>Logout</button>
+        <button onClick={ev => logoutHandler(ev)}>Logout</button>
       </DivHeader>
     </DivWrapper>
   );
 }
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.isLoggedIn
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  { logout }
+)(Header);

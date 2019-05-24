@@ -1,32 +1,51 @@
 import React from 'react';
 import styled from 'styled-components';
+import '../styles/landing-page.css';
+import { NavLink } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+
+// Link Variables
+const frontEnd = "/";
+const frontEndTeam = "/team";
+// const frontEnd = "https://irsr-frontend.netlify.com/";
+// const frontEndTeam = "https://irsr-frontend.netlify.com/team";
 
 /***************************************************************************************************
  ********************************************** Styles **********************************************
  **************************************************************************************************/
-const DivWrapper = styled.div``;
+const DivWrapper = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+
 
 /***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const LandingPage = props => {
+  let hambClicked = false;
+  console.log('hambClicked = ', hambClicked.toString());
   return (
-    <DivWrapper>
+    <DivWrapper id="home">
       <div class="nav-underlay">
-        <a href="##" class="nav-close-btn">X</a>
+        <a href={frontEnd} class="nav-close-btn">X</a>
       </div>
       <nav>
-        <a href="##" class="hamburger-button"><img src="./img/burger.png" /></a>
-        <a href="#">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="./team.html">Team</a>
-        <a href="https://irsr-frontend.netlify.com/">Login In / Sign Up</a>
+        <a href={frontEnd} class="hamburger-button"><img src={require("../assets/burger.png")} /></a>
+        <Link to={`${frontEnd}#home`}>Home</Link>
+        <Link to={`${frontEnd}#about`}>About</Link>
+        <Link to={`${frontEnd}#contact`}>Contact</Link>
+        <NavLink to={frontEndTeam}>Team</NavLink>
+        <NavLink to={`${frontEnd}login`}>Login In / Sign Up</NavLink>
       </nav>
       <div class="top-section" id="home">
         <div class="top-bg-overlay"></div>
         <div class="top-bg-img-container">
-          <img class="top-bg-img" src="./img/header-collab.jpg" />
+          <img class="top-bg-img" src={require("../assets/header-collab.jpg")} />
         </div>
         <div class="heading">
           <h1>International Rural Schools Report</h1>
@@ -34,7 +53,7 @@ const LandingPage = props => {
             An efficient, user-friendly and accessible resource for schools to keep
             track of issues and equipment.
       </p>
-          <a href="https://irsr-frontend.netlify.com/">GET STARTED</a>
+          <a href={frontEnd}>GET STARTED</a>
         </div>
       </div>
       <section id="about">
@@ -51,16 +70,16 @@ const LandingPage = props => {
               comments and log detailed information, we make it easy to keep track
               of all your equipment and see a big picture.
         </p>
-            <a href="https://irsr-frontend.netlify.com/" class="button">SIGN UP!</a>
+            <a href={frontEnd} class="button">SIGN UP!</a>
           </div>
         </div>
         <div class="section-img">
-          <img src="./img/about-classroom.jpg" />
+          <img src={require("../assets/about-classroom.jpg")} />
         </div>
       </section>
       <section id="contact">
         <div class="section-img" id="top-contact-img">
-          <img src="./img/contact-teacher.jpg" />
+          <img src={require("../assets/contact-teacher.jpg")} />
         </div>
         <div>
           <div class="article">
@@ -93,11 +112,7 @@ const LandingPage = props => {
               <div class="form-row">
                 <div class="field">
                   <label>Message: </label>
-                  <textarea
-                    class="message"
-                    type="message"
-                    name="Message"
-                  ></textarea>
+                  <textarea class="message" type="message" name="Message"></textarea>
                 </div>
                 <a href="#" class="button">Submit</a>
               </div>
@@ -105,7 +120,7 @@ const LandingPage = props => {
           </div>
         </div>
         <div class="section-img hidden" id="bottom-contact-img">
-          <img src="./img/contact-teacher.jpg" />
+          <img src={require("../assets/contact-teacher.jpg")} />
         </div>
       </section>
       <section>
@@ -122,15 +137,14 @@ const LandingPage = props => {
               applications that help our children and our communities? We hope that
               IRSR does just that!
         </p>
-            <a href="team.html" class="button">Learn More</a>
+            <a href={frontEndTeam} class="button">Learn More</a>
           </div>
         </div>
         <div class="section-img">
-          <img src="./img/team.jpg" />
+          <img src={require("../assets/team.jpg")} />
         </div>
       </section>
-      <footer><p>MIT Licensed - IRSR 2019</p></footer>
-    </DivWrapper>
+    </DivWrapper >
   );
 }
 

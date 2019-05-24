@@ -4,6 +4,7 @@ import { axiosAuth } from '../axiosAuth';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_LOADING = 'LOGIN_LOADING';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const GETTING_ORGS = 'GETTING_ORGS';
 export const GET_ORGS_SUCCESS = 'GET_ORGS_SUCCESS';
 export const GET_ORGS_FAILURE = 'GET_ORGS_FAILURE';
@@ -31,6 +32,12 @@ export const login = credentials => dispatch => {
       dispatch({ type: LOGIN_FAILURE, payload: err });
     });
 };
+
+export const logout = history => dispatch => {
+  window.localStorage.clear();
+  Promise.resolve(dispatch({ type: LOGOUT_SUCCESS }))
+    .then(() => history.push('/login'));
+}
 
 export const register = credentials => dispatch => {
   dispatch({ type: LOGIN_LOADING });

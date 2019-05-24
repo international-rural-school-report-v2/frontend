@@ -6,7 +6,7 @@ import styled from 'styled-components';
  **************************************************************************************************/
 const DivWrapper = styled.div`
   display: flex;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   min-width: 100%;
   min-height: 100%;
@@ -27,8 +27,7 @@ const DivWrapper = styled.div`
 const Footer = props => {
   return (
     <DivWrapper>
-      <p>Footer, not sure what to put in here yet...</p>
-      <p>ipsum asdjfhopdsahfpwsaeobfjpwdasfbpasdbfap</p>
+      <p>MIT Licensed - IRSR 2019</p>
     </DivWrapper>
   );
 }

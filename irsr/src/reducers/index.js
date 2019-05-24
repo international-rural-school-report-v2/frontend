@@ -1,15 +1,22 @@
 import {
   LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE,
-  GET_ORGS_SUCCESS,
+  LOGOUT_SUCCESS, GET_ORGS_SUCCESS,
   GETTING_ISSUES, GET_ISSUES_SUCCESS, GET_ISSUES_FAILURE,
   ADD_ISSUE_SUCCESS, FILTER_ISSUES, DELETE_ISSUE_SUCCESS,
   GETTING_TEACERS_ATTENDANCE, GET_TEACERS_ATTENDANCE_SUCCESS,
   GET_TEACERS_ATTENDANCE_FAILURE
 } from '../actions';
 
+const isLoggedIn = () => {
+  if (localStorage.getItem("token")) {
+    return true;
+  }
+  return false;
+}
+
 const initialState = {
   issues: [],
-  // isLoggedIn: null,
+  isLoggedIn: isLoggedIn(),
   // orgsFetched: false,
   teachersAttendanceLoading: false,
   teachersAttendance: [],
@@ -48,6 +55,11 @@ export const reducer = (state = initialState, action) => {
         error: action.payload,
         message: "",
         user: {}
+      }
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: false
       }
     case GET_ORGS_SUCCESS:
       return {
